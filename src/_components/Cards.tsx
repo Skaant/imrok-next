@@ -1,5 +1,6 @@
 import { MDXRenderer } from "gatsby-plugin-mdx";
 import * as React from "react";
+import Tags from "./Tags";
 
 function Cards({ cards }) {
   return (
@@ -12,6 +13,7 @@ function Cards({ cards }) {
         >
           <h2>{card.frontmatter.title}</h2>
           <MDXRenderer>{card.body}</MDXRenderer>
+          <Tags tags={card.frontmatter.tags} />
         </div>
       ))}
     </div>
