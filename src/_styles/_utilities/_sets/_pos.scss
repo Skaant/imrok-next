@@ -1,0 +1,9 @@
+@include utility(
+  "pos",
+  position,
+  (
+    relative: relative,
+    absolute: absolute,
+    sticky: sticky,
+  )
+);

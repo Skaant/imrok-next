@@ -1,0 +1,10 @@
+@include utility(
+  "d",
+  display,
+  (
+    block: block,
+    inline: inline,
+    inlineBlock: inlineBlock,
+    none: none,
+  )
+);

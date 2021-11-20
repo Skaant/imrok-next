@@ -1,0 +1,8 @@
+@include utility(
+  "w",
+  width,
+  (
+    100: 100%,
+    max: max-content,
+  )
+);

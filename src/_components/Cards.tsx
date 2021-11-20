@@ -3,7 +3,7 @@ import * as React from "react";
 
 function Cards({ cards }) {
   return (
-    <div className="cards">
+    <div className="cards mr-auto ml-auto">
       {cards.map((card, index) => (
         <div
           key={card.id}
