@@ -1,0 +1,11 @@
+.cards {
+  max-width: 860px;
+  max-height: 1200px;
+  .card {
+    display: none;
+    &.show {
+      display: block;
+      background-color: #eee;
+    }
+  }
+}

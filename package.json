@@ -30,5 +30,8 @@
     "react-dom": "^17.0.1",
     "react-helmet": "^6.1.0",
     "sass": "^1.43.4"
+  },
+  "devDependencies": {
+    "gatsby-plugin-ts-config": "^2.1.3"
   }
 }
