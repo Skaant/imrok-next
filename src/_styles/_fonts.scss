@@ -1,0 +1,22 @@
+@font-face {
+  font-family: roboto-regular;
+  src: url("../../static/Roboto-Regular.ttf");
+}
+
+@font-face {
+  font-family: mono-regular;
+  src: url("./../../static/RobotoMono-Regular.ttf");
+}
+
+body {
+  font-family: roboto-regular;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: mono-regular;
+}

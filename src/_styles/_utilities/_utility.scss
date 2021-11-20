@@ -1,8 +1,19 @@
 /// Creates a rule for every key-value couple in `$set`.
-@mixin utility($prefix, $property, $set: []) {
+@mixin utility($prefix, $property, $set, $responsive-sets: false) {
   @each $key, $value in $set {
     .#{$prefix}-#{$key} {
       #{$property}: #{$value};
+    }
+  }
+  @if $responsive-sets {
+    @each $breakpoint, $set in $responsive-sets {
+      @media (min-width: #{map.get($breakpoints, $breakpoint)}) {
+        @each $key, $value in $set {
+          .#{$prefix}-#{$breakpoint}-#{$key} {
+            #{$property}: #{$value};
+          }
+        }
+      }
     }
   }
 }

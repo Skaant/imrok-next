@@ -16,7 +16,9 @@ import getCardsAtPathQuery from "./src/_queries/getCardsAtPath.query";
 export default {
   createPages: async ({ graphql, actions }: CreatePagesArgs) => {
     const { createPage } = actions;
-    const introCards = await getCardsAtPathQuery(graphql, "_data/cards/intro");
+    const introCards = await getCardsAtPathQuery(graphql, "_data/cards/intro", [
+      "sort: {fields: frontmatter___id}",
+    ]);
     createPage({
       path: "/",
       component: require.resolve("./src/_templates/home.template.tsx"),

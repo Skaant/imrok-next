@@ -1,0 +1,14 @@
+@include utility(
+  "p",
+  padding,
+  (
+    36: 36px,
+    12: 12px,
+  ),
+  (
+    md: (
+      48: 48px,
+      16: 16px,
+    ),
+  )
+);

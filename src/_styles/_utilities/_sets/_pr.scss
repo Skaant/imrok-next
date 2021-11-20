@@ -1,0 +1,12 @@
+@include utility(
+  "pr",
+  padding-right,
+  (
+    12: 12px,
+  ),
+  (
+    md: (
+      24: 24px,
+    ),
+  )
+);

@@ -7,11 +7,15 @@ import NodeItem from "../_helpers/models/nodeItem.model";
  */
 async function getCardsAtPathQuery(
   graphql: Graphql,
-  path: string
+  path: string,
+  options: string[] = []
 ): Promise<NodeItem[]> {
   const result = await graphql(`
     query {
-      allMdx(filter: {fileAbsolutePath: {regex: "/${path}/"}}) {
+      allMdx(
+        filter: {fileAbsolutePath: {regex: "/${path}/"}}
+        ${options.join("\n")}
+      ) {
         nodes {
           id
           frontmatter {
@@ -22,9 +26,9 @@ async function getCardsAtPathQuery(
         }
       }
     }
-  `)
+  `);
   if (result.errors) {
-    throw new Error(result.errors)
+    throw new Error(result.errors);
   }
   return (result.data as DataAllMdx).allMdx.nodes;
 }

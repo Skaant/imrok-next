@@ -1,0 +1,12 @@
+@include utility(
+  "mb",
+  margin-bottom,
+  (
+    36: 36px,
+  ),
+  (
+    md: (
+      48: 48px,
+    ),
+  )
+);

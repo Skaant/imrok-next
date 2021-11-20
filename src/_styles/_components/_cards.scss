@@ -1,11 +1,7 @@
 .cards {
-  max-width: 860px;
+  max-width: map-get($breakpoints, md);
   max-height: 1200px;
   .card {
-    display: none;
-    &.show {
-      display: block;
-      background-color: #eee;
-    }
+    border-radius: 6px;
   }
 }

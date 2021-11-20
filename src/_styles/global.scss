@@ -1,4 +1,8 @@
-@import "./_utilities";
+@use "sass:map";
+
+@import "./variables";
+@import "./utilities";
+@import "./fonts";
 
 body {
   background-color: #111;
@@ -6,3 +10,4 @@ body {
 }
 
 @import "./_components/cards";
+@import "./_components/navbar";
