@@ -11,9 +11,9 @@ function Cards({ cards }) {
           id={card.frontmatter.id}
           className="card bg-light p-36 p-lg-48 mb-36 mb-lg-48"
         >
+          <Tags tags={card.frontmatter.tags} />
           <h2>{card.frontmatter.title}</h2>
           <MDXRenderer>{card.body}</MDXRenderer>
-          <Tags tags={card.frontmatter.tags} />
         </div>
       ))}
     </div>

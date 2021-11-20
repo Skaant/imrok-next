@@ -2,7 +2,7 @@ import * as React from "react";
 
 function Tags({ tags }) {
   return (
-    <div className="tags d-flex justify-content-end mt-36">
+    <div className="tags d-flex justify-content-end mb-36">
       {tags.map((tag) => (
         <a
           key={tag}
