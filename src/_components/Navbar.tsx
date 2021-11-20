@@ -6,7 +6,7 @@ function Navbar() {
       <div id="navbar__menu" className="d-none"></div>
       <div
         id="navbar__btns"
-        className="bg-light w-max ml-auto mr-auto p-12 p-lg-16"
+        className="bg-primary color-white w-max ml-auto mr-auto pr-24 pr-lg-36 pl-24 pl-lg-36 pt-12 pb-12"
       >
         <a href="/">IMROK</a>
         {/** <button>Menu</button> */}

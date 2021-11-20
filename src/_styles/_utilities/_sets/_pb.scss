@@ -1,13 +1,11 @@
 @include utility(
-  "pl",
-  padding-left,
+  "pb",
+  padding-bottom,
   (
     12: 12px,
-    24: 24px,
   ),
   (
     md: (
-      24: 24px,
       36: 36px,
     ),
   )
