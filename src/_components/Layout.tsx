@@ -3,19 +3,18 @@ import React from "react";
 import NodeItem from "../_helpers/models/nodeItem.model";
 
 import "../_styles/global.scss";
-import Cards from "./Cards";
 import Navbar from "./Navbar";
 
-export type LayoutProps = {
-  cards?: NodeItem[];
+type LayoutProps = {
+  children: React.ReactNode;
 };
 
-function Layout({ cards }: LayoutProps) {
+function Layout({ children }: LayoutProps) {
   return (
-    <>
+    <div className="container">
       <Navbar />
-      <Cards cards={cards} />
-    </>
+      {children}
+    </div>
   );
 }
 

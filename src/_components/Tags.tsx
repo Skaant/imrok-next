@@ -7,7 +7,7 @@ function Tags({ tags }) {
         <a
           key={tag}
           href={`/tags/${tag}`}
-          className="tag bg-primary color-white color-light d-block w-max pr-12 pl-12 pt-6 pb-6"
+          className="tag bg-primary color-white color-light d-block w-max ml-8 pr-12 pl-12 pt-6 pb-6"
         >
           {tag}
         </a>

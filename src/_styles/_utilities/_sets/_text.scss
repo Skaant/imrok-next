@@ -1,0 +1,9 @@
+@include utility(
+  "text",
+  text-align,
+  (
+    left: left,
+    center: center,
+    right: right,
+  )
+);

@@ -1,0 +1,5 @@
+.container {
+  max-width: map-get($breakpoints, md);
+  max-height: 1200px;
+  margin: 0 auto;
+}
