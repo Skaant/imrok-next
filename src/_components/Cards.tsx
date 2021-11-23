@@ -1,21 +1,45 @@
 import { MDXRenderer } from "gatsby-plugin-mdx";
 import * as React from "react";
-import Tags from "./Tags";
+import SpecialCardsEnum from "../_enums/special-cards.enum";
+import NodeItem from "../_models/node-item.model";
+import BaseNode from "../_models/nodeTypes/base-node.model";
+import SpecialCard from "../_models/special-card.model";
+import CardLayout from "./cards/CardLayout";
+import TagsCloudCard, { TagsCloudCardProps } from "./specialCards/TagsCloud";
 
-function Cards({ cards }) {
+function Cards({ cards }: { cards: Array<NodeItem | SpecialCard> }) {
   return (
     <div className="cards mt-48 mt-lg-64 mr-auto ml-auto pl-12 pl-lg-24 pr-12 pr-lg-24">
-      {cards.map((card) => (
-        <div
-          key={card.id}
-          id={card.frontmatter.id}
-          className="card bg-light p-36 p-lg-48 mb-36 mb-lg-48"
-        >
-          <Tags tags={card.frontmatter.tags} />
-          <h2>{card.frontmatter.title}</h2>
-          <MDXRenderer>{card.body}</MDXRenderer>
-        </div>
-      ))}
+      {cards.map((card, index) => {
+        if (card.hasOwnProperty("type")) {
+          card = card as SpecialCard;
+          switch (card.type) {
+            case SpecialCardsEnum.tags_cloud:
+              const { tags } = card.props as TagsCloudCardProps;
+              return (
+                <TagsCloudCard
+                  key={card.id}
+                  id={card.id}
+                  title={card.title}
+                  description={card.description}
+                  tags={tags}
+                />
+              );
+          }
+        } else {
+          card = card as BaseNode;
+          return (
+            <CardLayout
+              key={card.frontmatter.id}
+              id={card.frontmatter.id}
+              tags={card.frontmatter.tags}
+              title={card.frontmatter.title}
+            >
+              <MDXRenderer>{card.body}</MDXRenderer>
+            </CardLayout>
+          );
+        }
+      })}
     </div>
   );
 }

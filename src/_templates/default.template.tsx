@@ -3,11 +3,12 @@ import { PageProps } from "gatsby";
 import Layout from "../_components/Layout";
 import NodeItem from "../_models/node-item.model";
 import Cards from "../_components/Cards";
+import SpecialCard from "../_models/special-card.model";
 
 export type DefaultTemplateContext = {
   title?: string;
   subtitle?: string;
-  cards: NodeItem[];
+  cards: Array<NodeItem | SpecialCard>;
 };
 
 function DefaultTemplate({

@@ -1,8 +1,5 @@
-/** NodeItem is the generic type of GraphQL MDX items. */
-type NodeItem = {
-  id: string;
-  frontmatter: object;
-  body: any;
-};
+import BaseNode from "./nodeTypes/base-node.model";
+
+type NodeItem = BaseNode /** | others types like gallery & videos */;
 
 export default NodeItem;

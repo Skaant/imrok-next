@@ -1,12 +1,12 @@
 import DataAllMdx from "../_helpers/models/dataAllMdx.model";
 import Graphql from "../_helpers/models/graphql.model";
-import CardNode from "../_models/nodeTypes/card-node.model";
+import BaseNode from "../_models/nodeTypes/base-node.model";
 
 async function getCardsWithTag(
   graphql: Graphql,
   tag: string,
   options: string[] = []
-): Promise<CardNode[]> {
+): Promise<BaseNode[]> {
   const result = await graphql(`
     query {
       allMdx(
@@ -27,7 +27,7 @@ async function getCardsWithTag(
   if (result.errors) {
     throw new Error(result.errors);
   }
-  return (result.data as DataAllMdx).allMdx.nodes as CardNode[];
+  return (result.data as DataAllMdx).allMdx.nodes as BaseNode[];
 }
 
 export default getCardsWithTag;
