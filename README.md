@@ -1,54 +1,30 @@
-<p align="center">
-  <a href="https://www.gatsbyjs.com/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter">
-    <img alt="Gatsby" src="https://www.gatsbyjs.com/Gatsby-Monogram.svg" width="60" />
-  </a>
-</p>
-<h1 align="center">
-  Gatsby minimal starter
-</h1>
+# imrok-next
 
-## 🚀 Quick start
+`imrok-next` is the [`imrok.fr`](https://imrok.fr) new website, built on Gatsby.
 
-1.  **Create a Gatsby site.**
+## Quick start
 
-    Use the Gatsby CLI to create a new site, specifying the minimal starter.
+Navigate into your new site’s directory and start it up.
 
-    ```shell
-    # create a new Gatsby site using the minimal starter
-    npm init gatsby
-    ```
+```shell
+cd my-gatsby-site/
+npm run develop
+```
 
-2.  **Start developing.**
+## Glossary and types
 
-    Navigate into your new site’s directory and start it up.
+### Page & cards
 
-    ```shell
-    cd my-gatsby-site/
-    npm run develop
-    ```
+Pages are made of a collection of cards.
 
-3.  **Open the code and start customizing!**
+Cards can be either node-driven, [instances of a node type](#node--types), or speciality-driven, [instances of a special cards](#special-cards)
 
-    Your site is now running at http://localhost:8000!
+### Node & types
 
-    Edit `src/pages/index.js` to see your site update in real-time!
+`NodeItem` is the generic data retrieved by GraphQL and displayed atomically inside cards.
 
-4.  **Learn more**
+Types are derivated from `NodeItem` through `NodeTypesEnum`, having special props.
 
-    - [Documentation](https://www.gatsbyjs.com/docs/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
+### Special cards
 
-    - [Tutorials](https://www.gatsbyjs.com/tutorial/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
-
-    - [Guides](https://www.gatsbyjs.com/tutorial/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
-
-    - [API Reference](https://www.gatsbyjs.com/docs/api-reference/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
-
-    - [Plugin Library](https://www.gatsbyjs.com/plugins?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
-
-    - [Cheat Sheet](https://www.gatsbyjs.com/docs/cheat-sheet/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
-
-## 🚀 Quick start (Gatsby Cloud)
-
-Deploy this starter with one click on [Gatsby Cloud](https://www.gatsbyjs.com/cloud/):
-
-[<img src="https://www.gatsbyjs.com/deploynow.svg" alt="Deploy to Gatsby Cloud">](https://www.gatsbyjs.com/dashboard/deploynow?url=https://github.com/gatsbyjs/gatsby-starter-minimal)
+Special card holds a `SpecialCardEnum` type and its props.

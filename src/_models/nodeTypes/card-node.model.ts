@@ -1,4 +1,4 @@
-import NodeItem from "../nodeItem.model";
+import NodeItem from "../node-item.model";
 
 type CardNode = NodeItem & {
   frontmatter: {

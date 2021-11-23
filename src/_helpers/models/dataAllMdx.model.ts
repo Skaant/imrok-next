@@ -1,4 +1,4 @@
-import NodeItem from "./nodeItem.model";
+import NodeItem from "../../_models/node-item.model";
 
 type DataAllMdx = {
   allMdx: {

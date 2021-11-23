@@ -1,7 +1,7 @@
 import React from "react";
 import { PageProps } from "gatsby";
 import Layout from "../_components/Layout";
-import NodeItem from "../_helpers/models/nodeItem.model";
+import NodeItem from "../_models/node-item.model";
 import Cards from "../_components/Cards";
 
 export type DefaultTemplateContext = {
