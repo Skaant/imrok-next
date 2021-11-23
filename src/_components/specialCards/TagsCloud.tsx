@@ -11,7 +11,7 @@ export type TagsCloudCardProps = {
 
 function TagsCloudCard({ id, title, description, tags }: TagsCloudCardProps) {
   return (
-    <CardLayout id={id} title={title} description={description}>
+    <CardLayout id={id} title={title} description={description} special={true}>
       <Tags tags={tags} justifyContent="start" />
     </CardLayout>
   );

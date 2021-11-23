@@ -6,10 +6,16 @@ $breakpoints: (
   xl: 1200px,
 );
 
+$dark: #1d1d1d;
+$light: #f5f5f5;
+$primary: #72195a;
+$secondary: #4c1036;
+$tertiary: #6b5ca5;
+
 $colors: (
-  dark: #1d1d1d,
-  light: #f5f5f5,
-  primary: #72195a,
-  secondary: #4c1036,
-  tertiary: #6b5ca5,
+  dark: $dark,
+  light: $light,
+  primary: $primary,
+  secondary: $secondary,
+  tertiary: $tertiary,
 );
