@@ -1,11 +1,19 @@
 import * as React from "react";
+import ColorsEnum from "../_enums/colors.enum";
 
 type TagsProps = {
   tags: string[];
   justifyContent?: "end" | "start";
+  bg?: ColorsEnum;
+  color?: ColorsEnum;
 };
 
-function Tags({ tags, justifyContent = "end" }: TagsProps) {
+function Tags({
+  tags,
+  justifyContent = "end",
+  bg = ColorsEnum.primary,
+  color = ColorsEnum.light,
+}: TagsProps) {
   return (
     <div
       className={`tags d-flex justify-content-${justifyContent} ${
@@ -16,7 +24,7 @@ function Tags({ tags, justifyContent = "end" }: TagsProps) {
         <a
           key={tag}
           href={`/tags/${tag}`}
-          className={`tag bg-primary color-white color-light d-block w-max ${
+          className={`tag bg-${bg} color-${color} d-block w-max ${
             justifyContent === "end" ? "ml-8" : "mr-8"
           } pr-12 pl-12 pt-6 pb-6`}
         >

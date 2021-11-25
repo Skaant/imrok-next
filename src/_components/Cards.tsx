@@ -5,6 +5,9 @@ import NodeItem from "../_models/node-item.model";
 import BaseNode from "../_models/nodeTypes/base-node.model";
 import SpecialCard from "../_models/special-card.model";
 import CardLayout from "./cards/CardLayout";
+import CallToActionCard, {
+  CallToActionCardProps,
+} from "./specialCards/CallToAction";
 import TagsCloudCard, { TagsCloudCardProps } from "./specialCards/TagsCloud";
 
 function Cards({ cards }: { cards: Array<NodeItem | SpecialCard> }) {
@@ -14,6 +17,17 @@ function Cards({ cards }: { cards: Array<NodeItem | SpecialCard> }) {
         if (card.hasOwnProperty("type")) {
           card = card as SpecialCard;
           switch (card.type) {
+            case SpecialCardsEnum.call_to_action:
+              const { url } = card.props as CallToActionCardProps;
+              return (
+                <CallToActionCard
+                  key={card.id}
+                  id={card.id}
+                  url={url}
+                  title={card.title}
+                  description={card.description}
+                />
+              );
             case SpecialCardsEnum.tags_cloud:
               const { tags } = card.props as TagsCloudCardProps;
               return (

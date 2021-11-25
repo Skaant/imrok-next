@@ -1,30 +1,32 @@
 import * as React from "react";
+import ColorsEnum from "../../_enums/colors.enum";
 import Tags from "../Tags";
 
 type CardLayoutProps = {
   id: string;
+  name?: string;
   tags?: string[];
   title?: string;
   description?: string;
   children?: React.ReactNode;
-  special?: boolean;
+  bg?: ColorsEnum;
+  color?: ColorsEnum;
 };
 
 function CardLayout({
   id,
+  name,
   tags,
   title,
   description,
   children,
-  special = false,
+  bg = ColorsEnum.light,
+  color = ColorsEnum.dark,
 }: CardLayoutProps) {
   return (
     <div
-      key={id}
       id={id}
-      className={`card ${
-        special ? "bg-secondary color-light" : "bg-light"
-      } p-36 p-lg-48 mb-36 mb-lg-48`}
+      className={`card ${name} bg-${bg} color-${color} p-36 p-lg-48 mb-36 mb-lg-48`}
     >
       {tags && <Tags tags={tags} />}
       {title && <h2>{title}</h2>}

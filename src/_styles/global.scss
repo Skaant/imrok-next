@@ -3,9 +3,10 @@
 @import "./variables";
 @import "./utilities";
 @import "./fonts";
+@import "./typo";
 
 body {
-  background-color: $tertiary;
+  background-color: $dark;
   margin: 0;
 }
 

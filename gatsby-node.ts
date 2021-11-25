@@ -30,12 +30,39 @@ export default {
       context: {
         cards: [
           introCards[0],
+          {
+            type: "call_to_action",
+            id: "call_to_action--highbs-bok",
+            title: "Les préventes de mon livre l'HIGHBS-BOK sont ouverte",
+            description:
+              "Vous n'avez que jusqu'au 26 Décembre pour vous procurez-vous un exemplaire de ce formidable ouvrage, accompané de supers stickers spécialement créés pour l'occasion.",
+            props: {
+              url: "https://fr.ulule.com/highbs-bok-volume-1/",
+            },
+          } as SpecialCard,
           introCards[1],
+        ],
+      } as DefaultTemplateContext,
+    });
+    const tagsCards = await getCardsAtPathQuery(
+      graphql,
+      "_data/cards/tags" /* [
+      "sort: {fields: frontmatter___id}",
+    ] */
+    );
+    createPage({
+      path: "/tags",
+      component: require.resolve("./src/_templates/default.template.tsx"),
+      context: {
+        title: "Mots-clés",
+        cards: [
+          tagsCards[0],
           {
             type: "tags_cloud",
             id: "tags_cloud",
-            title: "Naviguez en utilisant les mots-clés",
-            description: "C'est magique, il suffit de cliquer !",
+            title: "Répertoire des mots-clés",
+            description:
+              "Voici une liste exhaustive de tous les mots-clés du site.",
             props: {
               tags,
             },
@@ -43,7 +70,6 @@ export default {
         ],
       } as DefaultTemplateContext,
     });
-    // todo tags page
     tags.forEach(async (tag) => {
       const tagCards = await getCardsWithTag(graphql, tag, [
         "sort: {fields: frontmatter___id}",
@@ -52,8 +78,8 @@ export default {
         path: `/tags/${tag}`,
         component: require.resolve("./src/_templates/default.template.tsx"),
         context: {
+          uptitle: "Mot-clé",
           title: tag,
-          subtitle: "Mot-clé",
           cards: tagCards,
         } as DefaultTemplateContext,
       });

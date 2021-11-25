@@ -7,24 +7,28 @@ import SpecialCard from "../_models/special-card.model";
 
 export type DefaultTemplateContext = {
   title?: string;
-  subtitle?: string;
+  uptitle?: string;
   cards: Array<NodeItem | SpecialCard>;
 };
 
 function DefaultTemplate({
   pageContext,
 }: PageProps<any, DefaultTemplateContext>) {
-  const { title, subtitle, cards } = pageContext;
+  const { uptitle, title, cards } = pageContext;
 
   return (
     <Layout>
-      {title && <h1 className="color-light text-center">{title}</h1>}
-      {title && subtitle && (
-        <>
-          <h1 className="color-light text-center mb-0">{title}</h1>
-          <p className="color-light mb-36">{subtitle}</p>
-        </>
-      )}
+      {title &&
+        (uptitle ? (
+          <>
+            <p className="size-2 color-light text-center mt-48 mb-0">
+              {uptitle}
+            </p>
+            <h1 className="color-light text-center mt-0">{title}</h1>
+          </>
+        ) : (
+          <h1 className="color-light text-center">{title}</h1>
+        ))}
       <Cards cards={cards} />
     </Layout>
   );
