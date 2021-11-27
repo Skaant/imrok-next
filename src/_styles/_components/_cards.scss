@@ -1,9 +1,18 @@
-.cards {
-  .card {
-    border-radius: 6px;
-    box-shadow: 0 0 4px $dark;
-    &.call_to_action {
-      text-decoration: none;
-    }
+.card {
+  &.call_to_action {
+    text-decoration: none;
+  }
+}
+.card__content {
+  p a,
+  ul a {
+    color: $primary;
+    font-weight: bold;
+  }
+  ul {
+    padding-left: 16px;
+  }
+  li {
+    padding: 4px 0;
   }
 }

@@ -1,29 +1,40 @@
 import React from "react";
+import ReactMarkdown from "react-markdown";
 import ColorsEnum from "../../_enums/colors.enum";
 import SpecialCardsEnum from "../../_enums/special-cards.enum";
-import CardLayout from "../cards/CardLayout";
+import SpecialCard from "../../_models/special-card.model";
+import { getCardClassName } from "../cards/CardLayout";
 
-export type CallToActionCardProps = {
-  id: string;
-  url: string;
-  title: string;
-  description?: string;
-};
+export type CallToActionCardSpecialProps = { url: string; label?: string };
+
+export type CallToActionCardProps = Pick<
+  SpecialCard,
+  "id" | "title" | "description"
+> &
+  CallToActionCardSpecialProps;
 
 function CallToActionCard({
   id,
   url,
   title,
   description,
+  label,
 }: CallToActionCardProps) {
   return (
     <a
       id={id}
       href={url}
-      className={`card ${SpecialCardsEnum.call_to_action} d-block bg-${ColorsEnum.secondary} color-${ColorsEnum.dark} p-36 p-lg-48 mb-36 mb-lg-48`}
+      className={
+        getCardClassName({
+          name: SpecialCardsEnum.call_to_action,
+          bg: ColorsEnum.secondary,
+          color: ColorsEnum.dark,
+        }) + " d-block"
+      }
     >
       {title && <h2>{title}</h2>}
-      {description && <p>{description}</p>}
+      {description && <ReactMarkdown>{description}</ReactMarkdown>}
+      {label && <p>{label}</p>}
     </a>
   );
 }

@@ -1,15 +1,19 @@
 import React from "react";
 import ColorsEnum from "../../_enums/colors.enum";
 import SpecialCardsEnum from "../../_enums/special-cards.enum";
+import SpecialCard from "../../_models/special-card.model";
 import CardLayout from "../cards/CardLayout";
 import Tags from "../Tags";
 
-export type TagsCloudCardProps = {
-  id: string;
-  title: string;
-  description?: string;
+export type TagsCloudCardSpecialProps = {
   tags: string[];
 };
+
+export type TagsCloudCardProps = Pick<
+  SpecialCard,
+  "id" | "title" | "description"
+> &
+  TagsCloudCardSpecialProps;
 
 function TagsCloudCard({ id, title, description, tags }: TagsCloudCardProps) {
   return (

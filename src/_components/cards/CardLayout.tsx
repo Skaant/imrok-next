@@ -13,6 +13,14 @@ type CardLayoutProps = {
   color?: ColorsEnum;
 };
 
+export function getCardClassName({
+  name,
+  bg,
+  color,
+}: Pick<CardLayoutProps, "name" | "bg" | "color">) {
+  return `card ${name} bg-${bg} color-${color} p-36 p-lg-48 mb-36 mb-lg-48 border-rad-6`;
+}
+
 function CardLayout({
   id,
   name,
@@ -24,14 +32,13 @@ function CardLayout({
   color = ColorsEnum.dark,
 }: CardLayoutProps) {
   return (
-    <div
-      id={id}
-      className={`card ${name} bg-${bg} color-${color} p-36 p-lg-48 mb-36 mb-lg-48`}
-    >
+    <div id={id} className={getCardClassName({ name, bg, color })}>
       {tags && <Tags tags={tags} />}
-      {title && <h2>{title}</h2>}
-      {description && <p>{description}</p>}
-      {children}
+      <div className="card__content">
+        {title && <h2>{title}</h2>}
+        {description && <p>{description}</p>}
+        {children}
+      </div>
     </div>
   );
 }

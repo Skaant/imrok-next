@@ -6,9 +6,14 @@ import BaseNode from "../_models/nodeTypes/base-node.model";
 import SpecialCard from "../_models/special-card.model";
 import CardLayout from "./cards/CardLayout";
 import CallToActionCard, {
-  CallToActionCardProps,
+  CallToActionCardSpecialProps,
 } from "./specialCards/CallToAction";
-import TagsCloudCard, { TagsCloudCardProps } from "./specialCards/TagsCloud";
+import LinksListCard, {
+  LinksListCardSpecialProps,
+} from "./specialCards/LinksList";
+import TagsCloudCard, {
+  TagsCloudCardSpecialProps,
+} from "./specialCards/TagsCloud";
 
 function Cards({ cards }: { cards: Array<NodeItem | SpecialCard> }) {
   return (
@@ -18,18 +23,19 @@ function Cards({ cards }: { cards: Array<NodeItem | SpecialCard> }) {
           card = card as SpecialCard;
           switch (card.type) {
             case SpecialCardsEnum.call_to_action:
-              const { url } = card.props as CallToActionCardProps;
+              const { url, label } = card.props as CallToActionCardSpecialProps;
               return (
                 <CallToActionCard
                   key={card.id}
                   id={card.id}
-                  url={url}
                   title={card.title}
+                  url={url}
+                  label={label}
                   description={card.description}
                 />
               );
             case SpecialCardsEnum.tags_cloud:
-              const { tags } = card.props as TagsCloudCardProps;
+              const { tags } = card.props as TagsCloudCardSpecialProps;
               return (
                 <TagsCloudCard
                   key={card.id}
@@ -37,6 +43,17 @@ function Cards({ cards }: { cards: Array<NodeItem | SpecialCard> }) {
                   title={card.title}
                   description={card.description}
                   tags={tags}
+                />
+              );
+            case SpecialCardsEnum.links_list:
+              const { links } = card.props as LinksListCardSpecialProps;
+              return (
+                <LinksListCard
+                  key={card.id}
+                  id={card.id}
+                  title={card.title}
+                  description={card.description}
+                  links={links}
                 />
               );
           }

@@ -9,7 +9,7 @@ function Navbar() {
         className="bg-primary w-max ml-auto mr-auto pr-24 pr-lg-36 pl-24 pl-lg-36 pt-12 pb-12"
       >
         <a href="/" className="color-light">
-          IMROK
+          IMROK.fr
         </a>
         {/** <button>Menu</button> */}
       </div>
