@@ -1,4 +1,4 @@
-import NodeItemCore from "../node-item-core";
+import NodeItemCore from "../node-item-core.model";
 
 type BaseNode = NodeItemCore & {
   frontmatter: {

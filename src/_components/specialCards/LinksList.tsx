@@ -1,7 +1,7 @@
 import React from "react";
 import ColorsEnum from "../../_enums/colors.enum";
 import SpecialCardsEnum from "../../_enums/special-cards.enum";
-import SpecialCard from "../../_models/special-card.model";
+import SpecialCardCore from "../../_models/cards/special-card-core.model";
 import CardLayout from "../cards/CardLayout";
 
 export type LinksListCardSpecialProps = {
@@ -9,7 +9,7 @@ export type LinksListCardSpecialProps = {
 };
 
 export type LinksListCardProps = Pick<
-  SpecialCard,
+  SpecialCardCore,
   "id" | "title" | "description"
 > &
   LinksListCardSpecialProps;

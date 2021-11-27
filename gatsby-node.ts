@@ -3,7 +3,6 @@ import { CallToActionCardProps } from "./src/_components/specialCards/CallToActi
 import { LinksListCardProps } from "./src/_components/specialCards/LinksList";
 import { TagsCloudCardProps } from "./src/_components/specialCards/TagsCloud";
 import SpecialCardsEnum from "./src/_enums/special-cards.enum";
-import SpecialCard from "./src/_models/special-card.model";
 import getCardsAtPathQuery from "./src/_queries/getCardsAtPath.query";
 import getCardsWithTag from "./src/_queries/getCardsWithTag.query";
 import getTagsQuery from "./src/_queries/getTags.query";

@@ -2,13 +2,13 @@ import React from "react";
 import ReactMarkdown from "react-markdown";
 import ColorsEnum from "../../_enums/colors.enum";
 import SpecialCardsEnum from "../../_enums/special-cards.enum";
-import SpecialCard from "../../_models/special-card.model";
+import SpecialCardCore from "../../_models/cards/special-card-core.model";
 import { getCardClassName } from "../cards/CardLayout";
 
 export type CallToActionCardSpecialProps = { url: string; label?: string };
 
 export type CallToActionCardProps = Pick<
-  SpecialCard,
+  SpecialCardCore,
   "id" | "title" | "description"
 > &
   CallToActionCardSpecialProps;

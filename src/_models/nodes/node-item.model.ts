@@ -1,4 +1,4 @@
-import BaseNode from "./nodeTypes/base-node.model";
+import BaseNode from "./_types/base-node.model";
 
 type NodeItem = BaseNode /** | others types like gallery & videos */;
 

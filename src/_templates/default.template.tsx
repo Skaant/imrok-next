@@ -1,9 +1,9 @@
 import React from "react";
 import { PageProps } from "gatsby";
 import Layout from "../_components/Layout";
-import NodeItem from "../_models/node-item.model";
+import NodeItem from "../_models/nodes/node-item.model";
 import Cards from "../_components/Cards";
-import SpecialCard from "../_models/special-card.model";
+import SpecialCard from "../_models/cards/special-card.model";
 
 export type DefaultTemplateContext = {
   title?: string;

@@ -28,3 +28,11 @@ Types are derivated from `NodeItem` through `NodeTypesEnum`, having special prop
 ### Special cards
 
 Special card holds a `SpecialCardEnum` type and its props.
+
+## Patterns
+
+- node, node types,
+- card, special cards,
+- _model,_ [model] core,
+- _components_,
+- _enum_ ...

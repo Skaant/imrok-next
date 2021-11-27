@@ -1,6 +1,6 @@
 import DataAllMdx from "../_helpers/models/dataAllMdx.model";
 import Graphql from "../_helpers/models/graphql.model";
-import BaseNode from "../_models/nodeTypes/base-node.model";
+import BaseNode from "../_models/nodes/_types/base-node.model";
 
 /**
  * @param path **MUST NOT** START & FINISH WITH A DASH
