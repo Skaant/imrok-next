@@ -3,6 +3,7 @@ import { CallToActionCardProps } from "./src/_components/specialCards/CallToActi
 import { LinksListCardProps } from "./src/_components/specialCards/LinksList";
 import { TagsCloudCardProps } from "./src/_components/specialCards/TagsCloud";
 import SpecialCardsEnum from "./src/_enums/special-cards.enum";
+import { categories } from "./src/_models/category.model";
 import getCardsAtPathQuery from "./src/_queries/getCardsAtPath.query";
 import getCardsWithTag from "./src/_queries/getCardsWithTag.query";
 import getTagsQuery from "./src/_queries/getTags.query";
@@ -49,36 +50,10 @@ export default {
             title: "Carte du site",
             description:
               "Ci-dessous, découvrez la liste des grandes catégories du site.",
-            links: [
-              {
-                url: "/pensees-sur-le-futur",
-                label: "Pensées sur le futur",
-              },
-              {
-                url: "/pensees-abstraites",
-                label: "Pensées abstraites",
-              },
-              {
-                url: "/illustrations-et-art",
-                label: "Illustrations et art",
-              },
-              {
-                url: "/anecdotes-de-vie",
-                label: "Anecdotes de vie",
-              },
-              {
-                url: "/permaculture-et-jardins",
-                label: "Permaculture et jardins",
-              },
-              {
-                url: "/livres-lus-et-extraits",
-                label: "Livres lus et extraits",
-              },
-              {
-                url: "/corps-et-energie",
-                label: "Corps et énergie",
-              },
-            ],
+            links: categories.map(({ id, label }) => ({
+              url: `/categories/${id}`,
+              label,
+            })),
           } as LinksListCardProps,
         ],
       } as DefaultTemplateContext,
