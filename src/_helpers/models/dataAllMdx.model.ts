@@ -1,8 +1,8 @@
-import NodeItem from "../../_models/nodes/node-item.model";
+import BaseNode from "../../_models/nodes/_types/base-node.model";
 
-type DataAllMdx = {
+type DataAllMdx<NodeType = BaseNode> = {
   allMdx: {
-    nodes: [NodeItem];
+    nodes: [NodeType];
   };
 };
 

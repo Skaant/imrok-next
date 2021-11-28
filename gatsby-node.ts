@@ -6,6 +6,7 @@ import SpecialCardsEnum from "./src/_enums/special-cards.enum";
 import { categories } from "./src/_models/category.model";
 import getCardsAtPathQuery from "./src/_queries/getCardsAtPath.query";
 import getCardsWithTag from "./src/_queries/getCardsWithTag.query";
+import getProjectsAtPathQuery from "./src/_queries/getProjectsAtPath.query";
 import getTagsQuery from "./src/_queries/getTags.query";
 import { DefaultTemplateContext } from "./src/_templates/default.template";
 
@@ -46,18 +47,54 @@ export default {
           introCards[1],
           {
             type: SpecialCardsEnum.links_list,
-            id: "carte-du-site",
-            title: "Carte du site",
+            id: "arborescence-du-site",
+            title: "Arborescence du site",
             description:
               "Ci-dessous, découvrez la liste des grandes catégories du site.",
-            links: categories.map(({ id, label }) => ({
+            links: categories.map(({ id, name }) => ({
               url: `/categories/${id}`,
-              label,
+              label: name,
             })),
           } as LinksListCardProps,
         ],
       } as DefaultTemplateContext,
     });
+    /**
+     * CATEGORIES INDEX & PAGES
+     */
+    const categoriesCards = await getCardsAtPathQuery(
+      graphql,
+      "_data/cards/categories" /* [
+      "sort: {fields: frontmatter___id}",
+    ] */
+    );
+    createPage({
+      path: "/categories",
+      component: require.resolve("./src/_templates/default.template.tsx"),
+      context: {
+        title: "Catégories du site",
+        cards: [categoriesCards[0]],
+      } as DefaultTemplateContext,
+    });
+    await Promise.all(
+      categories.map(async ({ id, name }) => {
+        /* const categoriesCards = await getCardsWithTag(graphql, id, [
+          "sort: {fields: frontmatter___id}",
+        ]); */
+        createPage({
+          path: `/categories/${id}`,
+          component: require.resolve("./src/_templates/default.template.tsx"),
+          context: {
+            uptitle: "Catégorie",
+            title: name,
+            cards: [] /* categoriesCards */,
+          } as DefaultTemplateContext,
+        });
+      })
+    );
+    /**
+     * TAGS INDEX & PAGES
+     */
     const tagsCards = await getCardsAtPathQuery(
       graphql,
       "_data/cards/tags" /* [
@@ -82,19 +119,76 @@ export default {
         ],
       } as DefaultTemplateContext,
     });
-    tags.forEach(async (tag) => {
-      const tagCards = await getCardsWithTag(graphql, tag, [
-        "sort: {fields: frontmatter___id}",
-      ]);
-      createPage({
-        path: `/tags/${tag}`,
-        component: require.resolve("./src/_templates/default.template.tsx"),
-        context: {
-          uptitle: "Mot-clé",
-          title: tag,
-          cards: tagCards,
-        } as DefaultTemplateContext,
-      });
+    await Promise.all(
+      tags.map(async (tag) => {
+        const tagCards = await getCardsWithTag(graphql, tag, [
+          "sort: {fields: frontmatter___id}",
+        ]);
+        createPage({
+          path: `/tags/${tag}`,
+          component: require.resolve("./src/_templates/default.template.tsx"),
+          context: {
+            uptitle: "Mot-clé",
+            title: tag,
+            cards: tagCards,
+          } as DefaultTemplateContext,
+        });
+      })
+    );
+    /**
+     * PROJECTS INDEX & PAGES
+     */
+    const projectsCards = await getCardsAtPathQuery(
+      graphql,
+      "_data/cards/projects" /* [
+      "sort: {fields: frontmatter___id}",
+    ] */
+    );
+    const projects = await await getProjectsAtPathQuery(
+      graphql,
+      "_data/projects/_index" /* [
+      "sort: {fields: frontmatter___id}",
+    ] */
+    );
+    createPage({
+      path: "/projets",
+      component: require.resolve("./src/_templates/default.template.tsx"),
+      context: {
+        title: "Mes différents projets",
+        cards: [
+          projectsCards[0],
+          {
+            type: SpecialCardsEnum.links_list,
+            id: "liste-des-projets",
+            title: "Liste des projets",
+            description:
+              "Pour le moment, tous les projets sont posés pêle-mêle ici.",
+            links: projects.map(({ frontmatter }) => {
+              console.log(frontmatter);
+              return {
+                url: `/projets/${frontmatter.id}`,
+                label: frontmatter.title,
+              };
+            }),
+          } as LinksListCardProps,
+        ],
+      } as DefaultTemplateContext,
     });
+    await Promise.all(
+      projects.map(async (project) => {
+        /* const projectCards = await getCardsWithTag(graphql, project, [
+          "sort: {fields: frontmatter___id}",
+        ]); */
+        createPage({
+          path: `/projets/${project.frontmatter.id}`,
+          component: require.resolve("./src/_templates/default.template.tsx"),
+          context: {
+            uptitle: "Projet",
+            title: project.frontmatter.title,
+            cards: [project] /* tagCards */,
+          } as DefaultTemplateContext,
+        });
+      })
+    );
   },
 };
