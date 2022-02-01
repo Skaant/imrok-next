@@ -17,7 +17,7 @@ npm start
 
 ## Concepts
 
-**Workflow** described here is implemented by [`./gatsby-node.ts`](./gatsby-node.ts).
+**Workflow** described here is implemented by [`./gatsby-node.ts`](../../tree/main/gatsby-node.ts).
 
 ### Data layer - Queries, Nodes
 
@@ -26,16 +26,16 @@ Data can be stored as :
 * **MDX files** for components and editorial content (in `./_data` folder),
 * **Code** for workflow use and display :
 
-  * **Enums** (in [`./src/_enums`](./src/_enums) folder),
-  * **Constants** (in [`./src/_data`](./src/_data) folder),
+  * **Enums** (in [`./src/_enums`](../../tree/main/src/_enums) folder),
+  * **Constants** (in [`./src/_data`](../../tree/main/src/_data) folder),
   * Static and re-usable page **nodes**,
-* **Static files** (in [`./static`](./static) folder).
+* **Static files** (in [`./static`](../../tree/main/static) folder).
 
 MDX files are gathered in `gatsby-node` **through [queries](#query), as [nodes](#node) objects**.
 
 #### [Query](#query)
 
-Multiple queries has been defined in [`./src/_queries`](./src/_queries) to **gather nodes conditionally** (file path, category, tags ...).
+Multiple queries has been defined in [`./src/_queries`](../../tree/main/src/_queries) to **gather nodes conditionally** (file path, category, tags ...).
 
 #### [Node](#node)
 
@@ -56,11 +56,13 @@ These properties **are set** through :
 
 ### Display layer
 
-#### [Pages](#pages)
+### [Component](#component)
 
-Pages are made of a set of row.
+#### [Page](#page)
 
-#### [Rows](#rows)
+Pages are made of a set of rows.
+
+#### [Row](#row)
 
 ## Patterns
 
