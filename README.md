@@ -56,11 +56,13 @@ These properties **are set** through :
 
 ### Display layer
 
-#### [Pages](#pages)
+### [Component](#component)
+
+#### [Page](#page)
 
 Pages are made of a set of rows.
 
-#### [Rows](#rows)
+#### [Row](#row)
 
 ## Patterns
 
