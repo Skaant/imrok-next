@@ -26,7 +26,7 @@ Data can be stored as :
 * **MDX files** for components and editorial content (in `./_data` folder),
 * **Code** for workflow use and display :
 
-  * **Enums** (in [`./src/_enums`](./src/_enums) folder),
+  * **Enums** (in [`./src/_enums`](../../tree/main/src/_enums) folder),
   * **Constants** (in [`./src/_data`](./src/_data) folder),
   * Static and re-usable page **nodes**,
 * **Static files** (in [`./static`](./static) folder).
