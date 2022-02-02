@@ -1,38 +1,89 @@
 # imrok-next
 
-`imrok-next` is the [`imrok.fr`](https://imrok.fr) new website, built on Gatsby.
+`imrok-next` is the **new version of [IMROK.fr](https://imrok.fr)**, my ([@Skaant](https://github.com/Skaant)) creative website.
+
+It is built on **[Gatsby](https://www.gatsbyjs.com)**, a Typescript-ready **static website generator**.
 
 ## Quick start
 
-Navigate into your new site’s directory and start it up.
+See your **changes live** with the local development server :
 
-```shell
-cd my-gatsby-site/
-npm run develop
+```bash
+# Install dependencies
+npm i
+# Run the website localy
+npm start
 ```
 
-## Glossary and types
+## Concepts
 
-### Page & cards
+**Workflow** described here is implemented by [`./gatsby-node.ts`](../../tree/main/gatsby-node.ts).
 
-Pages are made of a collection of cards.
+### Data layer - Queries, Nodes
 
-Cards can be either node-driven, [instances of a node type](#node--types), or speciality-driven, [instances of a special cards](#special-cards)
+Data can be stored as :
 
-### Node & types
+* **MDX files** for components and editorial content (in `./_data` folder),
+* **Code** for workflow use and display :
 
-`NodeItem` is the generic data retrieved by GraphQL and displayed atomically inside cards.
+  * **Enums** (in [`./src/_enums`](../../tree/main/src/_enums) folder),
+  * **Constants** (in [`./src/_data`](../../tree/main/src/_data) folder),
+  * Static and re-usable page **nodes**,
+* **Static files** (in [`./static`](../../tree/main/static) folder).
 
-Types are derivated from `NodeItem` through `NodeTypesEnum`, having special props.
+MDX files are gathered in `gatsby-node` **through [queries](#query), as [nodes](#node) objects**.
 
-### Special cards
+#### [Query](#query)
 
-Special card holds a `SpecialCardEnum` type and its props.
+Multiple queries has been defined in [`./src/_queries`](../../tree/main/src/_queries) to **gather nodes conditionally** (file path, category, tags ...).
+
+#### [Node](#node)
+
+**A page is built on multiple nodes content.**
+
+**Nodes hold properties** (like title, date, category, tags ...) which can be either used as :
+
+* **Conditions in queries**,
+* **Conditions in controller**,
+* Content **displayed in UI**.
+
+These properties **are set** through :
+
+* GraphQL, with **MDX files metadata**,
+* Frontmatter, **at the top of MDX files**.
+
+### Controller layer
+
+The controller layer **creates the website's tree** structure.
+
+It fetches data, **iterates** through it and **provision templates**.
+
+#### [Route](#route)
+
+Representing url node, route **group a ressource and its sub-routes**.
+
+### Display layer
+
+#### [Component](#component)
+
+React components are ultimately **pieces of static HTML files**.
+
+**They build pages**, from layout (meta, navbar ...) to grid (container, rows) and smaller components (buttons, cards ...).
+
+#### [Template](#template)
+
+Templates render to **one or multiple pages**.
+
+It is made of **a container and multiple rows**, which are filled with props data.
+
+#### [Row](#row)
+
+A row is a **structural component which specializes** for specific display (ex: editorial content, links list ...). 
 
 ## Patterns
 
 - node, node types,
-- card, special cards,
+- page, row, row types,
 - _model,_ [model] core,
 - _components_,
 - _enum_ ...
