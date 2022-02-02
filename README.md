@@ -54,15 +54,31 @@ These properties **are set** through :
 
 ### Controller layer
 
+The controller layer **creates the website's tree** structure.
+
+It fetches data, **iterates** through it and **provision templates**.
+
+#### [Route](#route)
+
+Representing url node, route **group a ressource and its sub-routes**.
+
 ### Display layer
 
-### [Component](#component)
+#### [Component](#component)
 
-#### [Page](#page)
+React components are ultimately **pieces of static HTML files**.
 
-Pages are made of a set of rows.
+**They build pages**, from layout (meta, navbar ...) to grid (container, rows) and smaller components (buttons, cards ...).
+
+#### [Template](#template)
+
+Templates render to **one or multiple pages**.
+
+It is made of **a container and multiple rows**, which are filled with props data.
 
 #### [Row](#row)
+
+A row is a **structural component which specializes** for specific display (ex: editorial content, links list ...). 
 
 ## Patterns
 
