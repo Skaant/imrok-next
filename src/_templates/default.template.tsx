@@ -14,22 +14,11 @@ export type DefaultTemplateContext = {
 function DefaultTemplate({
   pageContext,
 }: PageProps<any, DefaultTemplateContext>) {
-  const { uptitle, title, cards } = pageContext;
+  const { title } = pageContext;
 
   return (
     <Layout>
-      {title &&
-        (uptitle ? (
-          <>
-            <p className="size-2 color-light text-center mt-48 mb-0">
-              {uptitle}
-            </p>
-            <h1 className="color-light text-center mt-0">{title}</h1>
-          </>
-        ) : (
-          <h1 className="color-light text-center">{title}</h1>
-        ))}
-      <Cards cards={cards} />
+      {title && <h1 className="color-light text-center">{title}</h1>}
     </Layout>
   );
 }

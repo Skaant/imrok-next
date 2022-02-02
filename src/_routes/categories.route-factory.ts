@@ -8,7 +8,7 @@ const categoriesRouteFactory: RouteFactory = (path, createPage) => {
   Object.values(CATEGORIES).forEach((category) => {
     createPage({
       path: path + "/" + category,
-      component: "./src/_templates/default.template.tsx",
+      component: require.resolve("../_templates/default.template.tsx"),
       context: {
         title: CATEGORIES_DATA[category].name,
       },
