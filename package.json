@@ -12,7 +12,8 @@
     "start": "gatsby develop",
     "build": "gatsby build",
     "serve": "gatsby serve",
-    "clean": "gatsby clean"
+    "clean": "gatsby clean",
+    "test": "jest"
   },
   "dependencies": {
     "@mdx-js/mdx": "^1.6.22",
@@ -33,6 +34,9 @@
     "sass": "^1.43.4"
   },
   "devDependencies": {
-    "gatsby-plugin-ts-config": "^2.1.3"
+    "@babel/preset-typescript": "^7.16.7",
+    "@types/jest": "^27.4.0",
+    "gatsby-plugin-ts-config": "^2.1.3",
+    "jest": "^27.4.7"
   }
 }

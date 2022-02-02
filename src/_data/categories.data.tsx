@@ -20,6 +20,6 @@ export const CATEGORIES_DATA: Category[] = [
   },
   {
     id: CATEGORIES.bibliotheque,
-    name: "Bibliotheque",
+    name: "Bibliothéque",
   },
 ];
