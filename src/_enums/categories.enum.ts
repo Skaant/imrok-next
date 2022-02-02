@@ -1,11 +1,19 @@
-enum CategoriesEnum {
-  pensees_sur_le_futur = "pensees-sur-le-futur",
-  pensees_abstraites = "pensees_abstraites",
-  illustrations_et_art = "illustrations_et_art",
-  ma_vie = "ma_vie",
-  permaculture_et_jardins = "permaculture_et_jardins",
-  livres_lus_et_extraits = "livres_lus_et_extraits",
-  corps_et_energie = "corps_et_energie",
+enum CATEGORIES {
+  /**
+   * As various as :
+   * - Short notes,
+   * - Videos,
+   * - Schemas ...
+   */
+  pensees = "pensees",
+  /** Illustration production */
+  illustrations = "illustrations",
+  /** My experiments with gardens & nature */
+  permaculture = "permaculture",
+  /** Short personal stories */
+  anecdotes = "anecdotes",
+  /** Books I liked and extracts. */
+  bibliotheque = "bibliotheque",
 }
 
-export default CategoriesEnum;
+export default CATEGORIES;
