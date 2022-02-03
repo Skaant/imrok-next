@@ -9,10 +9,10 @@ type LayoutProps = {
 
 function Layout({ children }: LayoutProps) {
   return (
-    <div className="container">
+    <>
       <Navbar />
-      {children}
-    </div>
+      <main className="container">{children}</main>
+    </>
   );
 }
 
