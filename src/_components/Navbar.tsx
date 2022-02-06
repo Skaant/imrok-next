@@ -1,18 +1,24 @@
 import * as React from "react";
+import { CATEGORIES_DATA } from "../_data/categories.data";
 
 function Navbar() {
   return (
-    <div id="navbar" className="pos-sticky w-100">
-      <div id="navbar__menu" className="d-none"></div>
-      <div
-        id="navbar__btns"
-        className="bg-primary w-max ml-auto mr-auto pr-24 pr-lg-36 pl-24 pl-lg-36 pt-12 pb-12"
-      >
-        <a href="/" className="color-light">
-          IMROK.fr
+    <div
+      id="navbar"
+      className="pos-md-sticky w-100 justify-content-center align-items-center direction-column direction-md-row d-flex pt-12 pr-12 pl-12 pr-md-24 pl-md-24"
+    >
+      <a href="/" className="h-5 color-light pt-12 pb-12 pl-12 pr-12">
+        IMROK.fr
+      </a>
+      {Object.entries(CATEGORIES_DATA).map(([category, { title }]) => (
+        <a
+          href={`/${category}`}
+          key={category}
+          className="ml-8 color-secondary pt-12 pb-12 pl-12 pr-12"
+        >
+          {title}
         </a>
-        {/** <button>Menu</button> */}
-      </div>
+      ))}
     </div>
   );
 }
