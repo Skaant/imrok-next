@@ -1,4 +1,7 @@
+import COLORS from "../_enums/colors.enum";
+import ImageContent from "../_models/layout/content/_types/Image.content.type";
 import RouteFactory from "../_models/routes/route-factory.type";
+import { DefaultTemplateContext } from "../_templates/default.template";
 
 const homeRouteFactory: RouteFactory = (path, createPage) => {
   createPage({
@@ -6,7 +9,40 @@ const homeRouteFactory: RouteFactory = (path, createPage) => {
     component: require.resolve("../_templates/default.template.tsx"),
     context: {
       title: "Le site créatif de Romaric Ruga",
-    },
+      rows: [
+        {
+          title: "Pensées du moment",
+          level: 2,
+          content: "Mmmmh",
+        },
+        {
+          background: COLORS.secondary,
+          card: {
+            level: 2,
+            col: "md",
+            background: COLORS.light,
+            title: "HIGHBS-BOK",
+            content: "Stylé",
+            className: "pt-12 pb-12",
+          },
+        },
+        {
+          level: 2,
+          title: "Éditorial",
+          content: "Qui suis-je ? Qu'est-ce qu'on trouve sur ce site ?",
+        },
+        {
+          level: 2,
+          title: "Mots-clés les plus courants",
+          content: "Liste",
+        },
+        {
+          content: {
+            url: "https://medias.imrok.fr/seigneur-de-l-infini.png",
+          } as ImageContent,
+        },
+      ],
+    } as DefaultTemplateContext,
   });
 };
 
