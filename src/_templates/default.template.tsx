@@ -1,24 +1,24 @@
 import React from "react";
 import { PageProps } from "gatsby";
 import Layout from "../_components/Layout";
-import NodeItem from "../_models/nodes/node-item.model";
-import Cards from "../_components/Cards";
-import SpecialCard from "../_models/cards/special-card.model";
+import RowType from "../_models/layout/Row.type";
+import Row from "../_components/Row/Row";
 
 export type DefaultTemplateContext = {
-  title?: string;
+  title: string;
   uptitle?: string;
-  cards: Array<NodeItem | SpecialCard>;
+  rows?: RowType[];
 };
 
 function DefaultTemplate({
   pageContext,
 }: PageProps<any, DefaultTemplateContext>) {
-  const { title } = pageContext;
+  const { title, rows } = pageContext;
 
   return (
     <Layout>
       {title && <h1 className="color-light text-center">{title}</h1>}
+      {rows && rows.map((row, index) => <Row key={index} {...row} />)}
     </Layout>
   );
 }

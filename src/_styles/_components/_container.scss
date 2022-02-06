@@ -1,4 +1,8 @@
 .container {
-  max-width: map-get($breakpoints, md);
-  margin: 0 auto;
+  @each $size, $max in $breakpoints {
+    .col-#{$size} {
+      max-width: #{$max};
+      margin: 0 auto;
+    }
+  }
 }

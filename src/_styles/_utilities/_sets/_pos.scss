@@ -4,6 +4,10 @@
   (
     relative: relative,
     absolute: absolute,
-    sticky: sticky,
+  ),
+  (
+    md: (
+      sticky: sticky,
+    ),
   )
 );

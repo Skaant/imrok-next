@@ -1,0 +1,12 @@
+@include utility(
+  "direction",
+  flex-direction,
+  (
+    column: column,
+  ),
+  (
+    md: (
+      row: row,
+    ),
+  )
+);
