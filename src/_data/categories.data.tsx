@@ -4,22 +4,22 @@ import Category from "../_models/category.type";
 export const CATEGORIES_DATA: { [key in CATEGORIES]: Category } = {
   [CATEGORIES.pensees]: {
     id: CATEGORIES.pensees,
-    name: "Pensées",
+    title: "Pensées",
   },
   [CATEGORIES.illustrations]: {
     id: CATEGORIES.illustrations,
-    name: "Illustrations",
+    title: "Illustrations",
   },
   [CATEGORIES.permaculture]: {
     id: CATEGORIES.permaculture,
-    name: "Permaculture",
+    title: "Permaculture",
   },
   [CATEGORIES.anecdotes]: {
     id: CATEGORIES.anecdotes,
-    name: "Anecdotes",
+    title: "Anecdotes",
   },
   [CATEGORIES.bibliotheque]: {
     id: CATEGORIES.bibliotheque,
-    name: "Bibliothéque",
+    title: "Bibliothéque",
   },
 };

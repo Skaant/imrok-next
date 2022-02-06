@@ -20,7 +20,7 @@ async function getContent<ContentType>(
         filter: ${JSON.stringify(filter)}
       ) {
         nodes {
-          ${query}Gg
+          ${query}
         }
       }
     }
