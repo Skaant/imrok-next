@@ -5,14 +5,15 @@ import Navbar from "./Navbar";
 
 type LayoutProps = {
   children: React.ReactNode;
+  className?: string;
 };
 
-function Layout({ children }: LayoutProps) {
+function Layout({ className, children }: LayoutProps) {
   return (
-    <>
+    <div className={className}>
       <Navbar />
       <main className="container">{children}</main>
-    </>
+    </div>
   );
 }
 

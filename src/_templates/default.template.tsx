@@ -8,15 +8,17 @@ export type DefaultTemplateContext = {
   title: string;
   uptitle?: string;
   rows?: RowType[];
+  /** The `main.container` optional classes */
+  className?: string;
 };
 
 function DefaultTemplate({
   pageContext,
 }: PageProps<any, DefaultTemplateContext>) {
-  const { title, rows } = pageContext;
+  const { className, title, rows } = pageContext;
 
   return (
-    <Layout>
+    <Layout className={className}>
       {title && <h1 className="color-light text-center">{title}</h1>}
       {rows && rows.map((row, index) => <Row key={index} {...row} />)}
     </Layout>
