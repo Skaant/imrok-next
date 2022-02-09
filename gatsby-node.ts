@@ -6,7 +6,7 @@ export default {
   createPages: async ({ graphql, actions }: CreatePagesArgs) => {
     const { createPage } = actions;
 
-    homeRouteFactory("/", createPage);
-    categoriesRouteFactory("/", createPage);
+    await homeRouteFactory("/", createPage);
+    await categoriesRouteFactory("/", createPage, graphql);
   },
 };
