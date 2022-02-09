@@ -2,7 +2,7 @@ import { CATEGORIES_DATA } from "../../_data/categories.data";
 import CATEGORIES from "../../_enums/categories.enum";
 import VideoContent from "../../_models/layout/content/_types/Video.content.type";
 import RouteFactory from "../../_models/routes/route-factory.type";
-import getContent from "../../_queries/getContent.query";
+import getContent from "../../_queries/getContent/getContent.query";
 import { DefaultTemplateContext } from "../../_templates/default.template";
 
 const category = CATEGORIES.pensees;

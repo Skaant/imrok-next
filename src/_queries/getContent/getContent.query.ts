@@ -1,6 +1,6 @@
-import DataAllMdx from "../_helpers/models/dataAllMdx.model";
-import Graphql from "../_helpers/models/graphql.model";
-import NodeItemCore from "../_models/nodes/node-item-core.model";
+import DataAllMdx from "../../_helpers/models/dataAllMdx.model";
+import Graphql from "../../_helpers/models/graphql.model";
+import NodeItemCore from "../../_models/nodes/node-item-core.model";
 
 /**
  * Genericly typed content query.
@@ -8,7 +8,7 @@ import NodeItemCore from "../_models/nodes/node-item-core.model";
 async function getContent<
   ContentType extends {
     body: string;
-  } /* & Omit<ContentType, "body"> */
+  }
 >(
   graphql: Graphql,
   params: string,
