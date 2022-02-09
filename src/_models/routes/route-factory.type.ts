@@ -11,6 +11,6 @@ type RouteFactory<DataType = void> = (
   createPage: Actions["createPage"],
   graphql?: CreatePagesArgs["graphql"],
   data?: DataType
-) => void;
+) => Promise<void>;
 
 export default RouteFactory;

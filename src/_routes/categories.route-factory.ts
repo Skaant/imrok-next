@@ -4,9 +4,13 @@ import penseesRouteFactory from "./_categories/pensees.route-factory";
 
 // export type CategoriesData = {}
 
-const categoriesRouteFactory: RouteFactory = (path, createPage) => {
-  penseesRouteFactory(path, createPage);
-  illustrationsRouteFactory(path, createPage);
+const categoriesRouteFactory: RouteFactory = async (
+  path,
+  createPage,
+  graphql
+) => {
+  await penseesRouteFactory(path, createPage, graphql);
+  await illustrationsRouteFactory(path, createPage);
 };
 
 export default categoriesRouteFactory;

@@ -1,9 +1,10 @@
 import COLORS from "../_enums/colors.enum";
+import CONTENT_TYPES from "../_enums/content-types.enum";
 import ImageContent from "../_models/layout/content/_types/Image.content.type";
 import RouteFactory from "../_models/routes/route-factory.type";
 import { DefaultTemplateContext } from "../_templates/default.template";
 
-const homeRouteFactory: RouteFactory = (path, createPage) => {
+const homeRouteFactory: RouteFactory = async (path, createPage) => {
   createPage({
     path,
     component: require.resolve("../_templates/default.template.tsx"),
@@ -38,6 +39,7 @@ const homeRouteFactory: RouteFactory = (path, createPage) => {
         },
         {
           content: {
+            type: CONTENT_TYPES.IMAGE,
             url: "https://medias.imrok.fr/seigneur-de-l-infini.png",
           } as ImageContent,
         },
