@@ -1,11 +1,11 @@
-import BaseNode from "../../_models/nodes/_types/base-node.model";
+import NodeItemCore from "../../_models/nodes/node-item-core.model";
 
 /**
  * GraphQL queries result has the following shape.
  */
-type DataAllMdx<NodeType = BaseNode> = {
+type DataAllMdx<NodeType = NodeItemCore> = {
   allMdx: {
-    nodes: [NodeType];
+    nodes: NodeType[];
   };
 };
 
