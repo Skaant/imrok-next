@@ -3,9 +3,9 @@
  * It is used as intersection with other node types (in `./_types` folder),
  *  which are then grouped in NodeItem union.
  */
-type NodeItemCore = {
+type NodeItemCore<FrontmatterType = object> = {
   id: string;
-  frontmatter: object;
+  frontmatter: FrontmatterType;
   body: any;
 };
 
