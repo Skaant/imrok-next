@@ -5,6 +5,7 @@ type ImageContent = {
   url: string;
   alt: string;
   legend?: string;
+  body: string;
 };
 
 export default ImageContent;
