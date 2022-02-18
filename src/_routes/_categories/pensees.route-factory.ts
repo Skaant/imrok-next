@@ -1,5 +1,6 @@
 import { CATEGORIES_DATA } from "../../_data/categories.data";
 import CATEGORIES from "../../_enums/categories.enum";
+import { COLORS } from "../../_enums/colors.enum";
 import VideoContent from "../../_models/layout/content/_types/Video.content.type";
 import RouteFactory from "../../_models/routes/route-factory.type";
 import getContent from "../../_queries/getContent/getContent.query";
@@ -35,6 +36,9 @@ const penseesRouteFactory: RouteFactory = async (path, createPage, graphql) => {
       title,
       rows: videos.map((content) => ({
         card: {
+          col: "md",
+          background: COLORS.psik,
+          color: COLORS.light,
           content,
         },
       })),
