@@ -13,9 +13,11 @@ function Card({
 }: CardType) {
   return (
     <div
-      className={`card shadow ${background ? ` bg-${background}` : ""}${
-        color ? ` color-${color}` : ""
-      }${` col-${col}`}${className ? ` ${className}` : ""}`}
+      className={`card p-8 p-md-16 bo-rad-6 shadow-m ${
+        background ? ` bg-${background}` : ""
+      }${color ? ` color-${color}` : ""}${` col-${col}`}${
+        className ? ` ${className}` : ""
+      }`}
     >
       {level &&
         title &&

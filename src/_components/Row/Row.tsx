@@ -14,7 +14,7 @@ function Row({
 }: RowType) {
   return (
     <div
-      className={`row pr-12 pl-12 pr-md-24 pl-md-24 shadow ${
+      className={`row p-12 p-md-24 shadow ${
         background ? ` bg-${background}` : ""
       }${color ? ` color-${color}` : ""}${className ? ` ${className}` : ""}`}
     >

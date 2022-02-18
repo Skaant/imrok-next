@@ -38,8 +38,9 @@ const penseesRouteFactory: RouteFactory = async (path, createPage, graphql) => {
         card: {
           col: "md",
           background: COLORS.psik,
-          color: COLORS.light,
+          color: COLORS.dark,
           content,
+          level: 2,
         },
       })),
     } as DefaultTemplateContext,
