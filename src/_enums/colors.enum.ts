@@ -1,8 +1,6 @@
-enum COLORS {
+export enum COLORS {
   dark = "dark",
   light = "light",
-  primary = "primary",
-  secondary = "secondary",
+  psik = "psik",
+  highbs = "highbs",
 }
-
-export default COLORS;
