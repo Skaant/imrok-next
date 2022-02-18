@@ -6,6 +6,9 @@ import VideoContentType from "../../../_models/layout/content/_types/Video.conte
 import ImageContent from "./_types/ImageContent";
 import VideoContent from "./_types/VideoContent";
 
+/**
+ * `<Content {...content} />` is purely a **switch component**.
+ */
 function Content({ content }: { content: ContentType }) {
   if (typeof content === "string" || typeof content === "function")
     return <>{content}</>;
