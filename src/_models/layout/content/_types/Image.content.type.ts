@@ -1,11 +1,11 @@
 import CONTENT_TYPES from "../../../../_enums/content-types.enum";
+import ContentCore from "../Content.core.type";
 
-type ImageContent = {
+type ImageContent = ContentCore & {
   type: CONTENT_TYPES.IMAGE;
   url: string;
   alt: string;
   legend?: string;
-  body: string;
 };
 
 export default ImageContent;
