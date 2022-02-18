@@ -17,7 +17,7 @@ const homeRouteFactory: RouteFactory = async (path, createPage) => {
           content: "Mmmmh",
         },
         {
-          background: COLORS.secondary,
+          background: COLORS.light,
           card: {
             level: 2,
             col: "md",
