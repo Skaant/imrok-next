@@ -1,12 +1,27 @@
-/** NodeItemCore is the generic type of GraphQL MDX items.
+/**
+ * `NodeItemCore` is the generic type of GraphQL MDX items.
  *
- * It is used as intersection with other node types (in `./_types` folder),
- *  which are then grouped in NodeItem union.
+ * `FrontmatterType` is made of a `Content` type
+ *  (restricted to subtypes extending `ContentCore`)
+ *  with its `ContentCore`'s properties split a
+ *  level higher, as exposed by GraphQL.
  */
 type NodeItemCore<FrontmatterType = object> = {
   id: string;
+  /**
+   * Content metada.
+   *
+   * Made of a `ContentCore`-extending type,
+   *  without `ContentCore` properties
+   *  (currently, only `body`).
+   */
   frontmatter: FrontmatterType;
-  body: any;
+  /**
+   * @note Optional because nothing in queries
+   * currently ensure that `body` property is
+   * present in given `query`.
+   */
+  body?: string;
 };
 
 export default NodeItemCore;
