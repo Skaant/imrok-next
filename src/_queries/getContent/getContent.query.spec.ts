@@ -44,67 +44,8 @@ describe("getContent query", () => {
       {
         title: "title",
         body: "body",
+        params: "params",
       },
     ]);
-  });
-
-  describe("Works for all content types", () => {
-    it("Should work for ImageContent", async () => {
-      const graphqlImageSpy = jest.fn().mockResolvedValue({
-        data: {
-          allMdx: {
-            nodes: [
-              {
-                frontmatter: {
-                  type: CONTENT_TYPES.IMAGE,
-                  url: "url",
-                  alt: "alt",
-                  legend: "legend",
-                },
-                body: "body",
-              },
-            ],
-          },
-        } as DataAllMdx<NodeItemCore<Omit<ImageContent, "body">>>,
-      });
-      const result = await getContent<ImageContent>(graphqlImageSpy, "", "");
-      expect(result).toEqual([
-        {
-          type: CONTENT_TYPES.IMAGE,
-          url: "url",
-          alt: "alt",
-          legend: "legend",
-          body: "body",
-        },
-      ]);
-    });
-
-    it("Should work for VideoContent", async () => {
-      const graphqlImageSpy = jest.fn().mockResolvedValue({
-        data: {
-          allMdx: {
-            nodes: [
-              {
-                frontmatter: {
-                  type: CONTENT_TYPES.VIDEO,
-                  id: "id",
-                  title: "title",
-                },
-                body: "body",
-              },
-            ],
-          },
-        } as DataAllMdx<NodeItemCore<Omit<VideoContent, "body">>>,
-      });
-      const result = await getContent<VideoContent>(graphqlImageSpy, "", "");
-      expect(result).toEqual([
-        {
-          type: CONTENT_TYPES.VIDEO,
-          id: "id",
-          title: "title",
-          body: "body",
-        },
-      ]);
-    });
   });
 });
