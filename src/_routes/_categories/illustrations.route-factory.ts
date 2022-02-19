@@ -8,7 +8,7 @@ import { DefaultTemplateContext } from "../../_templates/default.template";
 const category = CATEGORIES.illustrations;
 const { id, title } = CATEGORIES_DATA[category];
 
-const illustrationsRouteFactory: RouteFactory = (path, createPage) => {
+const illustrationsRouteFactory: RouteFactory = async (path, createPage) => {
   createPage({
     path: path + id,
     component: require.resolve("../../_templates/default.template.tsx"),
