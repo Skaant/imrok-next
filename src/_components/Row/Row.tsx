@@ -4,6 +4,7 @@ import Card from "./Card/Card";
 import Content from "./Content/Content";
 
 function Row({
+  id,
   title,
   level,
   content,
@@ -14,6 +15,7 @@ function Row({
 }: RowType) {
   return (
     <div
+      {...(id && { id })}
       className={`row p-12 p-md-24 shadow ${
         background ? ` bg-${background}` : ""
       }${color ? ` color-${color}` : ""}${className ? ` ${className}` : ""}`}
