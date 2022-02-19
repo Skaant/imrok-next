@@ -1,6 +1,6 @@
 import { CreatePagesArgs } from "gatsby";
 import ProjectContent from "../../_models/layout/content/_types/Project.content.type";
-import getContents from "../getContent/getContents.query";
+import getContents from "../getContents/getContents.query";
 
 export enum PROJECTS_FILTERS {
   /**
