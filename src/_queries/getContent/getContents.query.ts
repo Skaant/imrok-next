@@ -1,5 +1,5 @@
+import { CreatePagesArgs } from "gatsby";
 import DataAllMdx from "../../_helpers/models/dataAllMdx.model";
-import Graphql from "../../_helpers/models/graphql.model";
 import ContentCore from "../../_models/layout/content/Content.core.type";
 import NodeItemCore from "../../_models/nodes/node-item-core.model";
 
@@ -7,22 +7,25 @@ import NodeItemCore from "../../_models/nodes/node-item-core.model";
  * Genericly typed content query.
  */
 async function getContents<ContentType extends ContentCore>(
-  graphql: Graphql,
-  params: string,
+  graphql: CreatePagesArgs["graphql"],
   /** Starts at `query { allMdx() { nodes {`. */
-  query: string
+  format: string,
+  params?: string
 ): Promise<ContentType[]> {
   const result = await graphql(`
     query {
-      allMdx(
+      allMdx${
+        params
+          ? `(
         ${params}
-      ) {
+      )`
+          : ""
+      } {
         nodes {
-          ${query}
+          ${format}
         }
       }
-    }
-  `);
+    }`);
   if (result.errors) {
     throw new Error(result.errors);
   }

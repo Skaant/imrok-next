@@ -20,7 +20,7 @@ describe("getContents query", () => {
   });
 
   it("Should call graphql with given props and query", async () => {
-    await getContents<MockContent>(graphqlSpy, "params", "query");
+    await getContents<MockContent>(graphqlSpy, "query", "params");
     // Respect indentation
     expect(graphqlSpy).toHaveBeenCalledWith(`
     query {
@@ -31,21 +31,19 @@ describe("getContents query", () => {
           query
         }
       }
-    }
-  `);
+    }`);
   });
 
   it("Should reformat graphql result to ContentType format", async () => {
     const result = await getContents<MockContent>(
       graphqlSpy,
-      "params",
-      "query"
+      "query",
+      "params"
     );
     expect(result).toEqual([
       {
         title: "title",
         body: "body",
-        params: "params",
       },
     ]);
   });
