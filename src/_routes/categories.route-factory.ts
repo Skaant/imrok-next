@@ -1,6 +1,7 @@
 import RouteFactory from "../_models/routes/route-factory.type";
 import illustrationsRouteFactory from "./_categories/illustrations.route-factory";
 import penseesRouteFactory from "./_categories/pensees.route-factory";
+import permacultureRouteFactory from "./_categories/permaculture.route-factory";
 
 // export type CategoriesData = {}
 
@@ -11,6 +12,7 @@ const categoriesRouteFactory: RouteFactory = async (
 ) => {
   await penseesRouteFactory(path, createPage, graphql);
   await illustrationsRouteFactory(path, createPage);
+  await permacultureRouteFactory(path, createPage, graphql);
 };
 
 export default categoriesRouteFactory;
