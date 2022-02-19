@@ -13,6 +13,7 @@ type ContentRef = {
 type ProjectContent = ContentCore & {
   type: CONTENT_TYPES.PROJECT;
   id: string;
+  slug: string;
   title: string;
   /**
    * `refs` hold others contents links, which will be

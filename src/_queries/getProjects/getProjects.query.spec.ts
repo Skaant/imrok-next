@@ -27,6 +27,7 @@ describe("getProjects query", () => {
         nodes {
           frontmatter {
             id
+            slug
             title
             refs {
               key
