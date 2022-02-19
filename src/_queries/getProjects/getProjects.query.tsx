@@ -26,15 +26,16 @@ async function getProjects(
     `frontmatter {
             id
             title
-            refs
+            refs {
+              key
+              path
+            }
           }
           body`,
     filters
-      ? `(
-      filter: {
+      ? `filter: {
         ${Object.entries(filters).map(([key, value]) => FILTERS[key](value))}
-      }
-    )`
+      }`
       : ""
   );
 }

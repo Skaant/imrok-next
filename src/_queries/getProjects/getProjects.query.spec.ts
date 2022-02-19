@@ -28,7 +28,10 @@ describe("getProjects query", () => {
           frontmatter {
             id
             title
-            refs
+            refs {
+              key
+              path
+            }
           }
           body
         }
