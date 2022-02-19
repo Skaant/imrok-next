@@ -1,4 +1,4 @@
-import Graphql from "../../_helpers/models/graphql.model";
+import { CreatePagesArgs } from "gatsby";
 import ProjectContent from "../../_models/layout/content/_types/Project.content.type";
 import getContents from "../getContent/getContents.query";
 
@@ -16,26 +16,26 @@ const FILTERS = {
 };
 
 async function getProjects(
-  graphql: Graphql,
+  graphql: CreatePagesArgs["graphql"],
   filters?: {
     [PROJECTS_FILTERS.PATH]?: string;
   }
 ): Promise<ProjectContent[]> {
   return getContents<ProjectContent>(
     graphql,
+    `frontmatter {
+            id
+            title
+            refs
+          }
+          body`,
     filters
       ? `(
       filter: {
         ${Object.entries(filters).map(([key, value]) => FILTERS[key](value))}
       }
     )`
-      : "",
-    `frontmatter {
-            id
-            title
-            refs
-          }
-          body`
+      : ""
   );
 }
 
