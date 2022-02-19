@@ -12,22 +12,18 @@ const { id, title } = CATEGORIES_DATA[category];
 const penseesRouteFactory: RouteFactory = async (path, createPage, graphql) => {
   const videos = await getContents<VideoContent>(
     graphql,
-    `
-      filter: {
-        frontmatter: {
-          type: { eq: "video" },
-        },
-      }
-    `,
-    `
-      frontmatter {
-        id
-        type
-        title
-        tags
-      }
-      body
-    `
+    `frontmatter {
+            id
+            type
+            title
+            tags
+          }
+          body`,
+    `filter: {
+      frontmatter: {
+        type: { eq: "video" },
+      },
+    }`
   );
   createPage({
     path: (path += id),
