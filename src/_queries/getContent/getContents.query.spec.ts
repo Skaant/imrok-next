@@ -1,11 +1,8 @@
-import CONTENT_TYPES from "../../_enums/content-types.enum";
 import DataAllMdx from "../../_helpers/models/dataAllMdx.model";
-import ImageContent from "../../_models/layout/content/_types/Image.content.type";
-import VideoContent from "../../_models/layout/content/_types/Video.content.type";
 import NodeItemCore from "../../_models/nodes/node-item-core.model";
-import getContent from "./getContent.query";
+import getContents from "./getContents.query";
 
-describe("getContent query", () => {
+describe("getContents query", () => {
   type MockContent = { body: string; title: string };
   const graphqlSpy = jest.fn().mockResolvedValue({
     data: {
@@ -23,7 +20,7 @@ describe("getContent query", () => {
   });
 
   it("Should call graphql with given props and query", async () => {
-    await getContent<MockContent>(graphqlSpy, "params", "query");
+    await getContents<MockContent>(graphqlSpy, "params", "query");
     // Respect indentation
     expect(graphqlSpy).toHaveBeenCalledWith(`
     query {
@@ -39,7 +36,11 @@ describe("getContent query", () => {
   });
 
   it("Should reformat graphql result to ContentType format", async () => {
-    const result = await getContent<MockContent>(graphqlSpy, "params", "query");
+    const result = await getContents<MockContent>(
+      graphqlSpy,
+      "params",
+      "query"
+    );
     expect(result).toEqual([
       {
         title: "title",
@@ -48,4 +49,7 @@ describe("getContent query", () => {
       },
     ]);
   });
+
+  /** @todo Use graphql-js objects to build up the query */
+  it.todo("Should allow complex param & queries");
 });

@@ -6,7 +6,7 @@ import NodeItemCore from "../../_models/nodes/node-item-core.model";
 /**
  * Genericly typed content query.
  */
-async function getContent<ContentType extends ContentCore>(
+async function getContents<ContentType extends ContentCore>(
   graphql: Graphql,
   params: string,
   /** Starts at `query { allMdx() { nodes {`. */
@@ -34,4 +34,4 @@ async function getContent<ContentType extends ContentCore>(
   })) as ContentType[];
 }
 
-export default getContent;
+export default getContents;
