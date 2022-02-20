@@ -7,7 +7,6 @@
  *  level higher, as exposed by GraphQL.
  */
 type NodeItemCore<FrontmatterType = object> = {
-  id: string;
   /**
    * Content metada.
    *
