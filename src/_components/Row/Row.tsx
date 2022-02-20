@@ -24,16 +24,8 @@ function Row({
         <Card {...card} />
       ) : (
         <>
-          {level &&
-            title &&
-            React.createElement(
-              `h${level}`,
-              {
-                className: `color-light text-center`,
-              },
-              title
-            )}
-          <Content content={content} />
+          {level && title && React.createElement(`h${level}`, {}, title)}
+          {content && <Content content={content} />}
         </>
       )}
     </div>

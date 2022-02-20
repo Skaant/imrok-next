@@ -13,21 +13,13 @@ function Card({
 }: CardType) {
   return (
     <div
-      className={`card p-8 p-md-16 bo-rad-6 shadow-m ${
+      className={`card p-24 p-md-32 bo-rad-6 shadow-m ${
         background ? ` bg-${background}` : ""
       }${color ? ` color-${color}` : ""}${` col-${col}`}${
         className ? ` ${className}` : ""
       }`}
     >
-      {level &&
-        title &&
-        React.createElement(
-          `h${level}`,
-          {
-            className: `color-light text-center`,
-          },
-          title
-        )}
+      {level && title && React.createElement(`h${level}`, {}, title)}
       <Content content={content} />
     </div>
   );
