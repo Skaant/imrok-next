@@ -5,9 +5,9 @@ import ProjectContent from "./_types/Project.content.type";
 import VideoContent from "./_types/Video.content.type";
 
 /** Hard-code contents */
-type InternalContent = string | ReactElement | LinksListContent;
+export type InternalContent = string | ReactElement | LinksListContent;
 /** Queried content */
-type ExternalContent = ImageContent | VideoContent | ProjectContent;
+export type ExternalContent = ImageContent | VideoContent | ProjectContent;
 
 /**
  * Pages are made of `Content[]`.
