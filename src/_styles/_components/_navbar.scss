@@ -2,7 +2,39 @@
   top: 0;
   box-sizing: border-box;
   font-family: mono-regular;
-  > a {
+  a {
     text-decoration: none;
+  }
+  > a.navbar-category {
+    height: 0;
+    padding: 0;
+    overflow: hidden;
+    border-bottom: 1px solid transparent;
+    transition: border-bottom-color cubic-bezier(0.075, 0.82, 0.165, 1) 2s,
+      color cubic-bezier(0.075, 0.82, 0.165, 1) 2s,
+      height cubic-bezier(0.075, 0.82, 0.165, 1) 2s,
+      padding cubic-bezier(0.075, 0.82, 0.165, 1) 2s;
+    &:hover {
+      border-bottom-color: $light;
+      color: $light;
+    }
+  }
+  > div > button#navbar-toggle {
+    letter-spacing: 1px;
+    font-family: mono-regular;
+    cursor: pointer;
+  }
+  &.open > a.navbar-category {
+    height: 1rem;
+    padding: 16px;
+  }
+}
+
+@media (min-width: #{map.get($breakpoints, md)}) {
+  #navbar {
+    > a.navbar-category {
+      height: 1rem;
+      padding: 12px;
+    }
   }
 }

@@ -1,4 +1,12 @@
 @include utility(
+  "bo",
+  border,
+  (
+    none: none,
+  )
+);
+
+@include utility(
   "bo-rad",
   border-radius,
   (
