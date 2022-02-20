@@ -1,7 +1,7 @@
 import * as React from "react";
 import RowType from "../_models/layout/Row.type";
 import Card from "./Card";
-import Content from "./Row/Content/Content";
+import Content from "./ContentSwitch";
 
 function Row({
   id,

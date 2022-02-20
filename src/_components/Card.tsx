@@ -1,7 +1,7 @@
 import * as React from "react";
 import COLORS from "../_enums/colors.enum";
 import CardType from "../_models/layout/Card.type";
-import Content from "./Row/Content/Content";
+import Content from "./ContentSwitch";
 
 function Card({
   background = COLORS.light,

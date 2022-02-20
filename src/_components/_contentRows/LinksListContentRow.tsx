@@ -1,14 +1,14 @@
 import React from "react";
-import LinksListContentType from "../../../../_models/layout/content/_types/LinksList.content.type";
-import Row from "../../../Row";
-import RowType from "../../../../_models/layout/Row.type";
+import LinksListContent from "../../_models/layout/content/_types/LinksList.content.type";
+import Row from "../Row";
+import RowType from "../../_models/layout/Row.type";
 
-function LinksListContent({
+function LinksListContentRow({
   id,
   description,
   links,
   ...props
-}: RowType<LinksListContentType>) {
+}: RowType<LinksListContent>) {
   return (
     <Row
       id={id}
@@ -33,4 +33,4 @@ function LinksListContent({
   );
 }
 
-export default LinksListContent;
+export default LinksListContentRow;

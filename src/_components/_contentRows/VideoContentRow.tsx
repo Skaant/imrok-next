@@ -1,13 +1,13 @@
 import * as React from "react";
-import RowType from "../../../../_models/layout/Row.type";
-import VideoContentType from "../../../../_models/layout/content/_types/Video.content.type";
-import Row from "../../../Row";
+import RowType from "../../_models/layout/Row.type";
+import VideoContent from "../../_models/layout/content/_types/Video.content.type";
+import Row from "../Row";
 
-function VideoContent({
+function VideoContentRow({
   id,
   className,
   ...videoRow
-}: RowType<VideoContentType>) {
+}: RowType<VideoContent>) {
   return (
     <Row
       className={`video-content col-md`}
@@ -21,4 +21,4 @@ function VideoContent({
   );
 }
 
-export default VideoContent;
+export default VideoContentRow;
