@@ -12,15 +12,18 @@ const homeRouteFactory: RouteFactory = async (path, createPage) => {
       title: "Le site créatif de Romaric Ruga",
       rows: [
         {
-          title: "Pensées du moment",
-          level: 2,
-          content: "Mmmmh",
+          card: {
+            title: "Pensées du moment",
+            level: 2,
+            content: "Mmmmh",
+            col: "md",
+          },
         },
         {
           background: COLORS.light,
           card: {
             level: 2,
-            col: "md",
+            col: "sm",
             background: COLORS.light,
             title: "HIGHBS-BOK",
             content: "Stylé",
