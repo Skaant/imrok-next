@@ -26,7 +26,7 @@ describe("getProjects query", () => {
       allMdx {
         nodes {
           frontmatter {
-            id
+            _id
             slug
             title
             refs {

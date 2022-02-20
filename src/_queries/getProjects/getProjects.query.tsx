@@ -24,12 +24,12 @@ async function getProjects(
   return getContents<ProjectContent>(
     graphql,
     `frontmatter {
-            id
+            _id
             slug
             title
             refs {
               key
-              path
+              _id
             }
           }
           body`,
