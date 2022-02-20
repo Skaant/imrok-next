@@ -15,8 +15,6 @@ function LinksListContent({
       id={id}
       card={{
         ...props,
-        background: COLORS.light,
-        color: COLORS.dark,
         content: (
           <>
             {description && <p>{description}</p>}
