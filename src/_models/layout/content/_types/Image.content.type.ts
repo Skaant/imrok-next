@@ -1,7 +1,7 @@
 import CONTENT_TYPES from "../../../../_enums/content-types.enum";
-import ContentCore from "../Content.core.type";
+import ExternalContentCore from "../ExternalContent.core.type";
 
-type ImageContent = ContentCore & {
+type ImageContent = ExternalContentCore & {
   type: CONTENT_TYPES.IMAGE;
   url: string;
   alt: string;

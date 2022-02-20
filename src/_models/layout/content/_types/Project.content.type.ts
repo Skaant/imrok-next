@@ -1,18 +1,16 @@
 import CONTENT_TYPES from "../../../../_enums/content-types.enum";
-import ContentCore from "../Content.core.type";
+import ExternalContentCore from "../ExternalContent.core.type";
 import Content from "../Content.type";
 
 /** Used to query sub-contents. */
-type ContentRef = {
+export type ContentRef = {
   /** Used for template provisioning. */
   key: string;
-  /** Starts in `/_data/`. */
-  path: string;
+  _id: string;
 };
 
-type ProjectContent = ContentCore & {
+type ProjectContent = ExternalContentCore & {
   type: CONTENT_TYPES.PROJECT;
-  id: string;
   slug: string;
   title: string;
   /**
