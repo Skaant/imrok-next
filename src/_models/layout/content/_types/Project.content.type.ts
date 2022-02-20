@@ -1,6 +1,6 @@
 import CONTENT_TYPES from "../../../../_enums/content-types.enum";
 import ExternalContentCore from "../ExternalContent.core.type";
-import Content from "../Content.type";
+import CATEGORIES from "../../../../_enums/categories.enum";
 
 /** Used to query sub-contents. */
 export type ContentRef = {
@@ -11,21 +11,23 @@ export type ContentRef = {
 
 type ProjectContent = ExternalContentCore & {
   type: CONTENT_TYPES.PROJECT;
+  /**
+   * @note Currently category isn't stored in MDX as
+   *  their path is already holding this data.
+   *
+   * Still we need it into route factories & templates
+   *  so the internal object must hold this property.
+   */
+  category?: CATEGORIES;
   slug: string;
   title: string;
   /**
-   * `refs` hold others contents links, which will be
-   *  queried to provision `contents` prop.
+   * `refs` hold contents links.
+   *
+   * They'll be queried to provision content through
+   *  `getContentsFromRefs` as `ExternalContent[]`.
    */
   refs?: ContentRef[];
-  /**
-   * `contents` is provisioned from `refs` by
-   *  specific queries like `getProjects`.
-   *
-   * If not processed through these methods,
-   *  `contents` will be left `undefined`.
-   */
-  contents?: Content[];
 };
 
 export default ProjectContent;

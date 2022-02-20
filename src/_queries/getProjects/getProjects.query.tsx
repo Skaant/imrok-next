@@ -25,6 +25,7 @@ async function getProjects(
     graphql,
     `frontmatter {
             _id
+            category
             slug
             title
             refs {

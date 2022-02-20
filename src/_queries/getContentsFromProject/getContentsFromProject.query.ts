@@ -25,6 +25,7 @@ async function getContentsFromProjectRefs(
           _id
           type  
           id
+          category
           slug
           title
           refs {
