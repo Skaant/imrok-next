@@ -1,7 +1,6 @@
 import React from "react";
 import LinksListContentType from "../../../../_models/layout/content/_types/LinksList.content.type";
-import Row from "../../Row";
-import COLORS from "../../../../_enums/colors.enum";
+import Row from "../../../Row";
 import RowType from "../../../../_models/layout/Row.type";
 
 function LinksListContent({

@@ -1,7 +1,7 @@
 import * as React from "react";
-import RowType from "../../_models/layout/Row.type";
-import Card from "./Card/Card";
-import Content from "./Content/Content";
+import RowType from "../_models/layout/Row.type";
+import Card from "./Row/Card/Card";
+import Content from "./Row/Content/Content";
 
 function Row({
   id,

@@ -2,7 +2,7 @@ import React from "react";
 import { PageProps } from "gatsby";
 import Layout from "../_components/Layout";
 import RowType from "../_models/layout/Row.type";
-import Row from "../_components/Row/Row";
+import Row from "../_components/Row";
 
 export type DefaultTemplateContext = {
   title: string;
