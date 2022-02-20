@@ -1,6 +1,6 @@
 import * as React from "react";
 import RowType from "../_models/layout/Row.type";
-import Card from "./Row/Card/Card";
+import Card from "./Card";
 import Content from "./Row/Content/Content";
 
 function Row({
