@@ -19,7 +19,7 @@ function DefaultTemplate({
 
   return (
     <Layout className={className}>
-      {title && <h1 className="color-light text-center">{title}</h1>}
+      <Row title={title} level={1} className="col-md color-light text-center" />
       {rows && rows.map((row, index) => <Row key={index} {...row} />)}
     </Layout>
   );
