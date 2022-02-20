@@ -9,6 +9,7 @@ import getProjects, {
 import { DefaultTemplateContext } from "../../_templates/default.template";
 import Row from "../../_models/layout/Row.type";
 import COLORS from "../../_enums/colors.enum";
+import projectRouteFactory from "../project/project.route-factory";
 
 const category = CATEGORIES.permaculture;
 const { id, title } = CATEGORIES_DATA[category];
@@ -22,6 +23,9 @@ const permacultureRouteFactory: RouteFactory = async (
     [PROJECTS_FILTERS.PATH]: `_projects/${id}`,
   });
   const path = _path + id;
+  await projectRouteFactory(path, createPage, graphql, {
+    project: projects[0],
+  });
   createPage({
     path,
     component: require.resolve("../../_templates/default.template.tsx"),
