@@ -30,7 +30,7 @@
   }
 }
 
-@media (min-width: #{map.get($breakpoints, md)}) {
+@media (min-width: #{map.get($breakpoints, lg)}) {
   #navbar {
     > a.navbar-category {
       height: 1rem;
