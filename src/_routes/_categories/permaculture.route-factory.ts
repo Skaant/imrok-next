@@ -4,12 +4,13 @@ import CONTENT_TYPES from "../../_enums/content-types.enum";
 import LinksListContent from "../../_types/content/_internalContents/LinksListContent.type";
 import Row from "../../_types/layout/Row.type";
 import RouteFactory from "../../_types/routes/RouteFactory.type";
-import getProjects, {
-  PROJECTS_FILTERS,
-} from "../../_queries/getProjects/getProjects.query";
 import { DefaultTemplateContext } from "../../_templates/default.template";
 import COLORS from "../../_enums/colors.enum";
 import projectRouteFactory from "../project/project.route-factory";
+import getContents, {
+  GET_CONTENT_FILTERS,
+} from "../../_queries/getContents/getContents.query";
+import ProjectContent from "../../_types/content/_externalContents/ProjectContent.type";
 
 const category = CATEGORIES.permaculture;
 const { id, title } = CATEGORIES_DATA[category];
@@ -19,9 +20,10 @@ const permacultureRouteFactory: RouteFactory = async (
   createPage,
   graphql
 ) => {
-  const projects = await getProjects(graphql, {
-    [PROJECTS_FILTERS.PATH]: `_projects/${id}`,
-  });
+  const projects = (await getContents(graphql, {
+    types: CONTENT_TYPES.PROJECT,
+    filters: { [GET_CONTENT_FILTERS.PATH]: `_projects/${id}` },
+  })) as ProjectContent[];
   const path = _path + id;
   await projectRouteFactory(path, createPage, graphql, {
     project: projects[0],
