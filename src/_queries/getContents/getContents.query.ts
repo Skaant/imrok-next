@@ -1,12 +1,13 @@
 import { CreatePagesArgs } from "gatsby";
 import DataAllMdx from "../../_helpers/models/dataAllMdx.model";
 import ContentCore from "../../_models/layout/content/Content.core.type";
+import ExternalContentCore from "../../_models/layout/content/ExternalContent.core.type";
 import NodeItemCore from "../../_models/nodes/node-item-core.model";
 
 /**
  * Genericly typed content query.
  */
-async function getContents<ContentType extends ContentCore>(
+async function getContents<ContentType extends ExternalContentCore>(
   graphql: CreatePagesArgs["graphql"],
   /** Starts at `query { allMdx() { nodes {`. */
   format: string,
