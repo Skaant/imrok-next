@@ -16,6 +16,8 @@ enum CONTENT_TYPES {
   LINKS_LIST = "links-list",
   /** Internal */
   CTA = "cta",
+  /** Internal */
+  TAGS_LIST = "tags-list",
 }
 
 export default CONTENT_TYPES;
