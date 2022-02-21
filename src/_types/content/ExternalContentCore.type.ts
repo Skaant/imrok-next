@@ -2,8 +2,9 @@ import ContentCore, { ContentCoreFields } from "./ContentCore.type";
 import ExternalContentTypes from "./ExternalContentTypes.type";
 
 /**
- * Dynamic content, queried from
- *  `_data` folder through GraphQL.
+ * Shared properties between all external contents.
+ *
+ * Aliased as so in `TextContent`
  */
 type ExternalContentCore = ContentCore & {
   _id: string;
@@ -15,6 +16,8 @@ type ExternalContentCore = ContentCore & {
    *  the frontammer YAML.
    */
   body?: string;
+  tags?: string[];
+  /** @todo Add created & updated dates */
 };
 
 export default ExternalContentCore;
@@ -25,4 +28,4 @@ export default ExternalContentCore;
  * To be more specific, it'll build the `frontmatter`
  *  object, thus `body` is ignored here.
  */
-export const ExternalContentCoreFields = [...ContentCoreFields, "_id"];
+export const ExternalContentCoreFields = [...ContentCoreFields, "_id", "tags"];

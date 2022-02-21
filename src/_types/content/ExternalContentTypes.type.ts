@@ -8,7 +8,7 @@ type ExternalContentTypes =
 
 export default ExternalContentTypes;
 
-export const ExternalContentTypesList = [
+export const ExternalContentTypesList: ExternalContentTypes[] = [
   CONTENT_TYPES.TEXT,
   CONTENT_TYPES.IMAGE,
   CONTENT_TYPES.VIDEO,

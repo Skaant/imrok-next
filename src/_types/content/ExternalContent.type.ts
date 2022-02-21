@@ -5,12 +5,17 @@ import ImageContent, {
 import ProjectContent, {
   ProjectContentFields,
 } from "./_externalContents/ProjectContent.type";
+import TextContent from "./_externalContents/TextContent.type";
 import VideoContent, {
   VideoContentFields,
 } from "./_externalContents/VideoContent.type";
 
 /** Queried content */
-type ExternalContent = ImageContent | VideoContent | ProjectContent;
+type ExternalContent =
+  | TextContent
+  | ImageContent
+  | VideoContent
+  | ProjectContent;
 
 export default ExternalContent;
 
