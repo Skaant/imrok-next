@@ -1,8 +1,8 @@
 import { CATEGORIES_DATA } from "../../_data/categories.data";
 import CATEGORIES from "../../_enums/categories.enum";
 import CONTENT_TYPES from "../../_enums/content-types.enum";
-import ImageContent from "../../_models/layout/content/_types/Image.content.type";
-import RouteFactory from "../../_models/routes/route-factory.type";
+import ImageContent from "../../_types/content/_externalContents/ImageContent.type";
+import RouteFactory from "../../_types/routes/RouteFactory.type";
 import { DefaultTemplateContext } from "../../_templates/default.template";
 
 const category = CATEGORIES.illustrations;

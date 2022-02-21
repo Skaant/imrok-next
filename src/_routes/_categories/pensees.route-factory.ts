@@ -1,8 +1,8 @@
 import { CATEGORIES_DATA } from "../../_data/categories.data";
 import CATEGORIES from "../../_enums/categories.enum";
 import COLORS from "../../_enums/colors.enum";
-import VideoContent from "../../_models/layout/content/_types/Video.content.type";
-import RouteFactory from "../../_models/routes/route-factory.type";
+import VideoContent from "../../_types/content/_externalContents/VideoContent.type";
+import RouteFactory from "../../_types/routes/RouteFactory.type";
 import getContents from "../../_queries/getContents/getContents.query";
 import { DefaultTemplateContext } from "../../_templates/default.template";
 

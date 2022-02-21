@@ -1,6 +1,6 @@
-import CONTENT_TYPES from "../../../../_enums/content-types.enum";
-import ExternalContentCore from "../ExternalContent.core.type";
-import CATEGORIES from "../../../../_enums/categories.enum";
+import CONTENT_TYPES from "../../../_enums/content-types.enum";
+import CATEGORIES from "../../../_enums/categories.enum";
+import ExternalContentCore from "../ExternalContentCore.type";
 
 /** Used to query sub-contents. */
 export type ContentRef = {

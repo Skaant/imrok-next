@@ -1,5 +1,5 @@
 import DataAllMdx from "../../_helpers/models/dataAllMdx.model";
-import NodeItemCore from "../../_models/nodes/node-item-core.model";
+import NodeItemCore from "../../_types/queries/node-item-core.model";
 import getContents from "./getContents.query";
 
 describe("getContents query", () => {

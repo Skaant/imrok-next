@@ -3,19 +3,19 @@
  */
 enum CONTENT_TYPES {
   /** External */
-  TEXT = "TEXT",
+  TEXT = "text",
   /** External */
-  IMAGE = "IMAGE",
+  IMAGE = "image",
   /** External */
-  GALLERY = "GALLERY",
+  GALLERY = "gallery",
   /** External */
-  VIDEO = "VIDEO",
+  VIDEO = "video",
   /** External */
-  PROJECT = "PROJECT",
+  PROJECT = "project",
   /** Internal */
-  LINKS_LIST = "LINKS_LIST",
+  LINKS_LIST = "links-list",
   /** Internal */
-  CTA = "CTA",
+  CTA = "cta",
 }
 
 export default CONTENT_TYPES;

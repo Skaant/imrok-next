@@ -1,5 +1,5 @@
-import CONTENT_TYPES from "../../../../_enums/content-types.enum";
-import ExternalContentCore from "../ExternalContent.core.type";
+import CONTENT_TYPES from "../../../_enums/content-types.enum";
+import ExternalContentCore from "../ExternalContentCore.type";
 
 type VideoContent = ExternalContentCore & {
   type: CONTENT_TYPES.VIDEO;

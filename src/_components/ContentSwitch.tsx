@@ -2,8 +2,8 @@ import React, { ReactElement } from "react";
 import ContentType, {
   ExternalContent,
   InternalContent,
-} from "../_models/layout/content/Content.type";
-import Row from "../_models/layout/Row.type";
+} from "../_types/content/Content.type";
+import Row from "../_types/layout/Row.type";
 import ContentRowSwitch from "./ContentRowSwitch";
 
 function ContentSwitch({ content }: { content: ContentType }): ReactElement {

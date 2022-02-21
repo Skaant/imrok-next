@@ -1,5 +1,5 @@
-import ProjectContent from "../../_models/layout/content/_types/Project.content.type";
-import RouteFactory from "../../_models/routes/route-factory.type";
+import ProjectContent from "../../_types/content/_externalContents/ProjectContent.type";
+import RouteFactory from "../../_types/routes/RouteFactory.type";
 import { DefaultTemplateContext } from "../../_templates/default.template";
 import getContentsFromProjectRefs from "../../_queries/getContentsFromProject/getContentsFromProject.query";
 

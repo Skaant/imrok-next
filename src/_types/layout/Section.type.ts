@@ -1,4 +1,4 @@
-import Content from "./content/Content.type";
+import Content from "../content/Content.type";
 
 type Section = {
   id?: string;

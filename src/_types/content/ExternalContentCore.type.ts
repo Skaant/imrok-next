@@ -1,4 +1,4 @@
-import ContentCore from "./Content.core.type";
+import ContentCore from "./ContentCore.type";
 
 /**
  * Dynamic content, queried from

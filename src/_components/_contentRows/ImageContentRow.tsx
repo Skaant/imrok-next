@@ -1,5 +1,5 @@
 import * as React from "react";
-import ImageContent from "../../_models/layout/content/_types/Image.content.type";
+import ImageContent from "../../_types/content/_externalContents/ImageContent.type";
 
 function ImageContentRow({ url, alt, legend }: ImageContent) {
   return (

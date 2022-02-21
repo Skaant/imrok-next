@@ -1,4 +1,4 @@
-import NodeItemCore from "../../_models/nodes/node-item-core.model";
+import NodeItemCore from "../../_types/queries/NodeItemCore.model";
 
 /**
  * GraphQL queries result has the following shape.

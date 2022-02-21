@@ -1,8 +1,8 @@
 import { CreatePagesArgs } from "gatsby";
 import DataAllMdx from "../../_helpers/models/dataAllMdx.model";
-import { ExternalContent } from "../../_models/layout/content/Content.type";
-import { ContentRef } from "../../_models/layout/content/_types/Project.content.type";
-import NodeItemCore from "../../_models/nodes/node-item-core.model";
+import ExternalContent from "../../_types/content/Content.type";
+import { ContentRef } from "../../_types/content/_externalContents/ProjectContent.type";
+import NodeItemCore from "../../_types/queries/node-item-core.model";
 
 /** @todo Should return `Promise<(ContentType & Row)[]>` */
 async function getContentsFromProjectRefs(

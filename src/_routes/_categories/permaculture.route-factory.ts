@@ -1,13 +1,13 @@
 import { CATEGORIES_DATA } from "../../_data/categories.data";
 import CATEGORIES from "../../_enums/categories.enum";
 import CONTENT_TYPES from "../../_enums/content-types.enum";
-import RouteFactory from "../../_models/routes/route-factory.type";
-import LinksListContent from "../../_models/layout/content/_types/LinksList.content.type";
+import LinksListContent from "../../_types/content/_internalContents/LinksListContent.type";
+import Row from "../../_types/layout/Row.type";
+import RouteFactory from "../../_types/routes/RouteFactory.type";
 import getProjects, {
   PROJECTS_FILTERS,
 } from "../../_queries/getProjects/getProjects.query";
 import { DefaultTemplateContext } from "../../_templates/default.template";
-import Row from "../../_models/layout/Row.type";
 import COLORS from "../../_enums/colors.enum";
 import projectRouteFactory from "../project/project.route-factory";
 

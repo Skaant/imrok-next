@@ -1,8 +1,7 @@
 import { CreatePagesArgs } from "gatsby";
 import DataAllMdx from "../../_helpers/models/dataAllMdx.model";
-import ContentCore from "../../_models/layout/content/Content.core.type";
-import ExternalContentCore from "../../_models/layout/content/ExternalContent.core.type";
-import NodeItemCore from "../../_models/nodes/node-item-core.model";
+import ExternalContentCore from "../../_types/content/ExternalContentCore.type";
+import NodeItemCore from "../../_types/queries/NodeItemCore.model";
 
 /**
  * Genericly typed content query.

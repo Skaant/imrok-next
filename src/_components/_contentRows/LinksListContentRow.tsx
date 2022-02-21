@@ -1,7 +1,7 @@
 import React from "react";
-import LinksListContent from "../../_models/layout/content/_types/LinksList.content.type";
+import LinksListContent from "../../_types/content/_internalContents/LinksListContent.type";
 import Row from "../Row";
-import RowType from "../../_models/layout/Row.type";
+import RowType from "../../_types/layout/Row.type";
 
 function LinksListContentRow({
   id,

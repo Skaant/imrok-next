@@ -1,13 +1,11 @@
 import React, { ReactElement } from "react";
 import CONTENT_TYPES from "../_enums/content-types.enum";
-import {
-  ExternalContent,
-  InternalContent,
-} from "../_models/layout/content/Content.type";
-import ImageContent from "../_models/layout/content/_types/Image.content.type";
-import VideoContent from "../_models/layout/content/_types/Video.content.type";
-import LinksListContent from "../_models/layout/content/_types/LinksList.content.type";
-import Row from "../_models/layout/Row.type";
+import InternalContent from "../_types/content/InternalContent.type";
+import ExternalContent from "../_types/content/ExternalContent.type";
+import ImageContent from "../_types/content/_externalContents/ImageContent.type";
+import VideoContent from "../_types/content/_externalContents/VideoContent.type";
+import LinksListContent from "../_types/content/_internalContents/LinksListContent.type";
+import Row from "../_types/layout/Row.type";
 import ImageContentRow from "./_contentRows/ImageContentRow";
 import VideoContentRow from "./_contentRows/VideoContentRow";
 import LinksListContentRow from "./_contentRows/LinksListContentRow";

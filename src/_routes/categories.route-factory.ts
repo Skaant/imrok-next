@@ -1,4 +1,4 @@
-import RouteFactory from "../_models/routes/route-factory.type";
+import RouteFactory from "../_types/routes/RouteFactory.type";
 import illustrationsRouteFactory from "./_categories/illustrations.route-factory";
 import penseesRouteFactory from "./_categories/pensees.route-factory";
 import permacultureRouteFactory from "./_categories/permaculture.route-factory";

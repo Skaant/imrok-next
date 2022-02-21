@@ -1,14 +1,7 @@
 import { ReactElement } from "react";
-import Row from "../Row.type";
-import ImageContent from "./_types/Image.content.type";
-import LinksListContent from "./_types/LinksList.content.type";
-import ProjectContent from "./_types/Project.content.type";
-import VideoContent from "./_types/Video.content.type";
-
-/** Hard-code contents */
-export type InternalContent = LinksListContent;
-/** Queried content */
-export type ExternalContent = ImageContent | VideoContent | ProjectContent;
+import Row from "../layout/Row.type";
+import ExternalContent from "./ExternalContent.type";
+import InternalContent from "./InternalContent.type";
 
 /**
  * Pages are made of `Content[]`.

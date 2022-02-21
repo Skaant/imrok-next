@@ -1,6 +1,6 @@
 import DataAllMdx from "../../_helpers/models/dataAllMdx.model";
-import ProjectContent from "../../_models/layout/content/_types/Project.content.type";
-import NodeItemCore from "../../_models/nodes/node-item-core.model";
+import ProjectContent from "../../_types/content/_externalContents/ProjectContent.type";
+import NodeItemCore from "../../_types/queries/node-item-core.model";
 import getProjects, { PROJECTS_FILTERS } from "./getProjects.query";
 
 describe("getProjects query", () => {
