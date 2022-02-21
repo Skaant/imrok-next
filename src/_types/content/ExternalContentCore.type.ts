@@ -1,4 +1,5 @@
 import ContentCore, { ContentCoreFields } from "./ContentCore.type";
+import ExternalContentTypes from "./ExternalContentTypes.type";
 
 /**
  * Dynamic content, queried from
@@ -6,6 +7,7 @@ import ContentCore, { ContentCoreFields } from "./ContentCore.type";
  */
 type ExternalContentCore = ContentCore & {
   _id: string;
+  type: ExternalContentTypes;
   /**
    * This particular field will be extracted from
    *  the MDX part of the file, while all others
@@ -17,5 +19,10 @@ type ExternalContentCore = ContentCore & {
 
 export default ExternalContentCore;
 
-/** Used to generate `ExternalContent` queries. */
-export const ExternalContentCoreFields = [...ContentCoreFields, "_id", "body"];
+/**
+ * Used to generate `ExternalContent` queries.
+ *
+ * To be more specific, it'll build the `frontmatter`
+ *  object, thus `body` is ignored here.
+ */
+export const ExternalContentCoreFields = [...ContentCoreFields, "_id"];
