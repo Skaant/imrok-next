@@ -1,4 +1,4 @@
-import ContentCore from "./ContentCore.type";
+import ContentCore, { ContentCoreFields } from "./ContentCore.type";
 
 /**
  * Dynamic content, queried from
@@ -16,3 +16,6 @@ type ExternalContentCore = ContentCore & {
 };
 
 export default ExternalContentCore;
+
+/** Used to generate `ExternalContent` queries. */
+export const ExternalContentCoreFields = [...ContentCoreFields, "_id", "body"];

@@ -1,6 +1,8 @@
 import CONTENT_TYPES from "../../../_enums/content-types.enum";
 import CATEGORIES from "../../../_enums/categories.enum";
-import ExternalContentCore from "../ExternalContentCore.type";
+import ExternalContentCore, {
+  ExternalContentCoreFields,
+} from "../ExternalContentCore.type";
 
 /** Used to query sub-contents. */
 export type ContentRef = {
@@ -31,3 +33,13 @@ type ProjectContent = ExternalContentCore & {
 };
 
 export default ProjectContent;
+
+/** Used to generate `ExternalContent` queries. */
+export const ProjectContentFields = [
+  ...ExternalContentCoreFields,
+  "type",
+  "category",
+  "slug",
+  "title",
+  ["refs", "key", "_id"],
+];

@@ -1,5 +1,7 @@
 import CONTENT_TYPES from "../../../_enums/content-types.enum";
-import ExternalContentCore from "../ExternalContentCore.type";
+import ExternalContentCore, {
+  ExternalContentCoreFields,
+} from "../ExternalContentCore.type";
 
 type ImageContent = ExternalContentCore & {
   type: CONTENT_TYPES.IMAGE;
@@ -9,3 +11,11 @@ type ImageContent = ExternalContentCore & {
 };
 
 export default ImageContent;
+
+export const ImageContentFields = [
+  ...ExternalContentCoreFields,
+  "type",
+  "url",
+  "alt",
+  "legend",
+];

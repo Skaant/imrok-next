@@ -1,5 +1,7 @@
 import CONTENT_TYPES from "../../../_enums/content-types.enum";
-import ExternalContentCore from "../ExternalContentCore.type";
+import ExternalContentCore, {
+  ExternalContentCoreFields,
+} from "../ExternalContentCore.type";
 
 type VideoContent = ExternalContentCore & {
   type: CONTENT_TYPES.VIDEO;
@@ -8,3 +10,11 @@ type VideoContent = ExternalContentCore & {
 };
 
 export default VideoContent;
+
+/** Used to generate `ExternalContent` queries. */
+export const VideoContentFields = [
+  ...ExternalContentCoreFields,
+  "type",
+  "id",
+  "title",
+];
