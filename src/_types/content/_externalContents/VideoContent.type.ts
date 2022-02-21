@@ -12,9 +12,4 @@ type VideoContent = ExternalContentCore & {
 export default VideoContent;
 
 /** Used to generate `ExternalContent` queries. */
-export const VideoContentFields = [
-  ...ExternalContentCoreFields,
-  "type",
-  "id",
-  "title",
-];
+export const VideoContentFields = [...ExternalContentCoreFields, "id", "title"];

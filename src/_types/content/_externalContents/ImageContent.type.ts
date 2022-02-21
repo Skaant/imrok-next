@@ -14,7 +14,6 @@ export default ImageContent;
 
 export const ImageContentFields = [
   ...ExternalContentCoreFields,
-  "type",
   "url",
   "alt",
   "legend",
