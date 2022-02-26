@@ -1,30 +1,18 @@
 import { CATEGORIES_DATA } from "../../_data/categories.data";
 import CATEGORIES from "../../_enums/categories.enum";
 import COLORS from "../../_enums/colors.enum";
-import VideoContent from "../../_types/content/_externalContents/VideoContent.type";
 import RouteFactory from "../../_types/routes/RouteFactory.type";
 import getContents from "../../_queries/getContents/getContents.query";
 import { DefaultTemplateContext } from "../../_templates/default.template";
+import CONTENT_TYPES from "../../_enums/content-types.enum";
 
 const category = CATEGORIES.pensees;
 const { id, title } = CATEGORIES_DATA[category];
 
 const penseesRouteFactory: RouteFactory = async (path, createPage, graphql) => {
-  const videos = await getContents<VideoContent>(
-    graphql,
-    `frontmatter {
-            id
-            type
-            title
-            tags
-          }
-          body`,
-    `filter: {
-      frontmatter: {
-        type: { eq: "video" },
-      },
-    }`
-  );
+  const videos = await getContents(graphql, {
+    types: CONTENT_TYPES.VIDEO,
+  });
   createPage({
     path: (path += id),
     component: require.resolve("../../_templates/default.template.tsx"),
