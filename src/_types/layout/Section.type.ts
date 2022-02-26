@@ -11,3 +11,13 @@ type Section = {
 };
 
 export default Section;
+
+export const SectionFields = [
+  "id",
+  "title",
+  "level",
+  // "content",
+  "background",
+  "color",
+  "className",
+];
