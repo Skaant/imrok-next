@@ -7,10 +7,9 @@ import RouteFactory from "../../_types/routes/RouteFactory.type";
 import { DefaultTemplateContext } from "../../_templates/default.template";
 import COLORS from "../../_enums/colors.enum";
 import projectRouteFactory from "../project/project.route-factory";
-import getContents, {
-  GET_CONTENT_FILTERS,
-} from "../../_queries/getContents/getContents.query";
+import getContents from "../../_queries/getContents/getContents.query";
 import ProjectContent from "../../_types/content/_externalContents/ProjectContent.type";
+import GET_CONTENT_FILTERS from "../../_queries/getContents/_enums/getContentFilters.enum";
 
 const category = CATEGORIES.permaculture;
 const { id, title } = CATEGORIES_DATA[category];
