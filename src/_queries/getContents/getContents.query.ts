@@ -5,6 +5,7 @@ import ExternalContentTypes from "../../_types/content/ExternalContentTypes.type
 import Row from "../../_types/layout/Row.type";
 import NodeItemCore from "../../_types/queries/NodeItemCore.model";
 import GET_CONTENT_FILTERS from "./_enums/getContentFilters.enum";
+import GET_CONTENT_SORTS from "./_enums/getContentSorts.enum";
 import argsBuilder from "./_helpers/argsBuilder.helper";
 import fieldsBuilder from "./_helpers/fieldsBuilder.helper";
 
@@ -14,7 +15,10 @@ export type GetContentsTypes =
   | Row<ExternalContentTypes>
   | Row<ExternalContentTypes>[];
 
-export type GetContentsFilters = { [key in GET_CONTENT_FILTERS]?: string };
+export type GetContentsFilters = { [key in GET_CONTENT_FILTERS]?: any };
+
+export type SortOrder = "ASC" | "DESC";
+export type GetContentsSorts = { [GET_CONTENT_SORTS.UPDATED_AT]: SortOrder };
 
 /**
  * Genericly typed content query.

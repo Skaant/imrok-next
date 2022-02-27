@@ -1,4 +1,6 @@
+import CATEGORIES from "../../../_enums/categories.enum";
 import CONTENT_TYPES from "../../../_enums/content-types.enum";
+import { GetContentsSorts } from "../getContents.query";
 import argsBuilder from "./argsBuilder.helper";
 
 describe("argsBuilder", () => {
@@ -11,13 +13,13 @@ describe("argsBuilder", () => {
    * SINGLE ARG CASES
    */
 
-  /** TYPES: CONTENT_TYPES */
+  /** TYPES / TYPES: CONTENT_TYPES */
   it("Should returns a filter if types: CONTENT_TYPES is given", () => {
     expect(argsBuilder({ types: CONTENT_TYPES.TEXT })).toBe(
       `(filter: { frontmatter: { type: { eq: "${CONTENT_TYPES.TEXT}" } } })`
     );
   });
-  /** TYPES: CONTENT_TYPES[] */
+  /** TYPES / TYPES: CONTENT_TYPES[] */
   it("Should returns a filter if types: CONTENT_TYPES[] is given", () => {
     expect(
       argsBuilder({ types: [CONTENT_TYPES.TEXT, CONTENT_TYPES.IMAGE] })
@@ -25,11 +27,32 @@ describe("argsBuilder", () => {
       `(filter: { frontmatter: { type: { in: ["${CONTENT_TYPES.TEXT}", "${CONTENT_TYPES.IMAGE}"] } } })`
     );
   });
-  /** PATH */
+  /** FILTERS / PATH */
   it("Should returns a filter if filter path is given", () => {
     const path = "_videos";
     expect(argsBuilder({ filters: { path } })).toBe(
       `(filter: { fileAbsolutePath: { regex: "/_data/${path}/" } })`
+    );
+  });
+  /** FILTERS / CATEGORY */
+  it("Should returns a filter if filter category is given", () => {
+    const category = CATEGORIES.pensees;
+    expect(argsBuilder({ filters: { category } })).toBe(
+      `(filter: { frontmatter: { category: { eq: "${category}" } } })`
+    );
+  });
+  /** FILTERS / TAGS */
+  it("Should returns a filter if filter tags is given", () => {
+    const tags = ["radiant", "smooth", "smart"];
+    expect(argsBuilder({ filters: { tags } })).toBe(
+      `(filter: { frontmatter: { tags: { in: "${tags.join('", ')}" } } })`
+    );
+  });
+  /** SORT / UPDATED_AT */
+  it("Should returns a sort if sort updatedAt is given", () => {
+    const updatedAt = ["radiant", "smooth", "smart"];
+    expect(argsBuilder({ sort: { updatedAt: "DESC" } })).toBe(
+      `(sort: { fields: frontmatter___date, order: DESC })`
     );
   });
 
@@ -47,6 +70,20 @@ describe("argsBuilder", () => {
       })
     ).toBe(
       `(filter: { fileAbsolutePath: { regex: "/_data/${path}/" }, frontmatter: { type: { eq: "${CONTENT_TYPES.TEXT}" } } })`
+    );
+  });
+
+  /** CATEGORY & SORT */
+  it("Should returns one filter & one sort if both category & sort are given", () => {
+    const category = CATEGORIES.permaculture;
+    const sort: GetContentsSorts = { updatedAt: "DESC" };
+    expect(
+      argsBuilder({
+        filters: { category },
+        sort,
+      })
+    ).toBe(
+      `(filter: { frontmatter: { category: { eq: "${category}" } } }, sort: { fields: frontmatter___date, order: DESC })`
     );
   });
 });
