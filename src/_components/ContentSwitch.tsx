@@ -1,12 +1,17 @@
 import React, { ReactElement } from "react";
-import ContentType, {
-  ExternalContent,
-  InternalContent,
-} from "../_types/content/Content.type";
+import ContentType from "../_types/content/Content.type";
+import ExternalContent from "../_types/content/ExternalContent.type";
+import InternalContent from "../_types/content/InternalContent.type";
 import Row from "../_types/layout/Row.type";
 import ContentRowSwitch from "./ContentRowSwitch";
 
-function ContentSwitch({ content }: { content: ContentType }): ReactElement {
+function ContentSwitch({
+  content,
+  ...props
+}: {
+  content: ContentType;
+  [key: string]: any;
+}): ReactElement {
   if (typeof content === "string") return <>{content}</>;
   if (typeof content === "object") {
     if (content["$$typeof"] === Symbol.for("react.element")) {
@@ -14,7 +19,9 @@ function ContentSwitch({ content }: { content: ContentType }): ReactElement {
     }
     return (
       <ContentRowSwitch
-        content={content as Row<InternalContent | ExternalContent>}
+        content={
+          { ...content, ...props } as Row<InternalContent | ExternalContent>
+        }
       />
     );
   }

@@ -1,7 +1,8 @@
 import * as React from "react";
-import RowType from "../_models/layout/Row.type";
+import Content from "../_types/content/Content.type";
+import RowType from "../_types/layout/Row.type";
 import Card from "./Card";
-import Content from "./ContentSwitch";
+import ContentSwitch from "./ContentSwitch";
 
 function Row({
   id,
@@ -12,7 +13,15 @@ function Row({
   color,
   card,
   className,
+  ...props
 }: RowType) {
+  const _content = !content
+    ? Object.keys(props).length
+      ? (props as Content)
+      : undefined
+    : typeof content === "object"
+    ? { ...content, ...(Object.keys(props).length ? props : {}) }
+    : content;
   return (
     <div
       {...(id && { id })}
@@ -25,7 +34,7 @@ function Row({
       ) : (
         <>
           {level && title && React.createElement(`h${level}`, {}, title)}
-          {content && <Content content={content} />}
+          {_content && <ContentSwitch content={_content} />}
         </>
       )}
     </div>
