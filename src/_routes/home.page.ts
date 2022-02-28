@@ -4,9 +4,13 @@ import { DefaultTemplateContext } from "../_templates/default.template";
 import ExternalContent from "../_types/content/ExternalContent.type";
 import ImageContent from "../_types/content/_externalContents/ImageContent.type";
 import LinksListContent from "../_types/content/_internalContents/LinksListContent.type";
-import Page from "../_types/routes/Page.type";
+import PageContextFactory from "../_types/routes/PageContextFactory.type";
 
-const homePage: Page = ({ news }: { news: ExternalContent[] }) =>
+const homePageContextFactory: PageContextFactory = ({
+  news,
+}: {
+  news: ExternalContent[];
+}) =>
   ({
     title: "Le site créatif de Romaric Ruga",
     rows: [
@@ -59,4 +63,4 @@ const homePage: Page = ({ news }: { news: ExternalContent[] }) =>
     ],
   } as DefaultTemplateContext);
 
-export default homePage;
+export default homePageContextFactory;

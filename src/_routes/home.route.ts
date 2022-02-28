@@ -1,7 +1,7 @@
 import RouteFactory from "../_types/routes/RouteFactory.type";
 import getContents from "../_queries/getContents/getContents.query";
 import GET_CONTENT_SORTS from "../_queries/getContents/_enums/getContentSorts.enum";
-import homePage from "./home.page";
+import homePageContextFactory from "./home.page";
 
 const homeRouteFactory: RouteFactory = async (path, createPage, graphql) => {
   const news = await getContents(graphql, {
@@ -10,7 +10,7 @@ const homeRouteFactory: RouteFactory = async (path, createPage, graphql) => {
   createPage({
     path,
     component: require.resolve("../_templates/default.template.tsx"),
-    context: homePage({ news }),
+    context: homePageContextFactory({ news }),
   });
 };
 
