@@ -52,7 +52,7 @@ describe("argsBuilder", () => {
   it("Should returns a sort if sort updatedAt is given", () => {
     const updatedAt = ["radiant", "smooth", "smart"];
     expect(argsBuilder({ sort: { updatedAt: "DESC" } })).toBe(
-      `(sort: { fields: frontmatter___date, order: DESC })`
+      `(sort: { fields: frontmatter___updatedAt, order: DESC })`
     );
   });
 
@@ -83,7 +83,7 @@ describe("argsBuilder", () => {
         sort,
       })
     ).toBe(
-      `(filter: { frontmatter: { category: { eq: "${category}" } } }, sort: { fields: frontmatter___date, order: DESC })`
+      `(filter: { frontmatter: { category: { eq: "${category}" } } }, sort: { fields: frontmatter___updatedAt, order: DESC })`
     );
   });
 });

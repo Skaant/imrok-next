@@ -23,7 +23,7 @@ const SORTS_RESOLVERS: {
   [key in GET_CONTENT_SORTS]: (...ars: any) => string;
 } = {
   [GET_CONTENT_SORTS.UPDATED_AT]: (order: SortOrder) =>
-    `{ fields: frontmatter___date, order: ${order} }`,
+    `{ fields: frontmatter___updatedAt, order: ${order} }`,
 };
 
 function typesFilterResolver(types: GetContentsTypes) {
