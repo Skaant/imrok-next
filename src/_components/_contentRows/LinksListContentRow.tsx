@@ -2,6 +2,7 @@ import React from "react";
 import LinksListContent from "../../_types/content/_internalContents/LinksListContent.type";
 import Row from "../Row";
 import RowType from "../../_types/layout/Row.type";
+import Tag from "../Tag";
 
 function LinksListContentRow({
   id,
@@ -17,11 +18,27 @@ function LinksListContentRow({
         content: (
           <>
             {description && <p>{description}</p>}
-            <ul>
-              {links.map(({ url, label }) => (
+            <ul className="">
+              {links.map(({ url, label, date, category, tags, type }) => (
                 <li key={url}>
                   <a href={url} className="color-dark">
+                    {category && (
+                      <span className="badge rounded-pill bg-highbs text-light">
+                        {category}
+                      </span>
+                    )}
+                    {date && (
+                      <span className="badge rounded-pill bg-psik text-light">
+                        {date}
+                      </span>
+                    )}
+                    {type && (
+                      <span className="badge rounded-pill bg-highbs text-light">
+                        {type}
+                      </span>
+                    )}
                     {label}
+                    {tags && tags.map((tag) => <Tag key={tag} tag={tag} />)}
                   </a>
                 </li>
               ))}
