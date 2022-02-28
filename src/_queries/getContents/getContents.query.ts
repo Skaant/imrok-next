@@ -28,16 +28,18 @@ async function getContents(
   {
     types,
     filters,
+    sort,
   }: {
     types?: GetContentsTypes;
     filters?: GetContentsFilters;
+    sort?: GetContentsSorts;
   } = {},
   /** Add `Row` type props to query & results. */
   rows?: true
 ): Promise<ExternalContent[]> {
   console.log(`
     query {
-      allMdx${argsBuilder({ types, filters })} {
+      allMdx${argsBuilder({ types, filters, sort })} {
         nodes {
           ${fieldsBuilder({ types }, rows)}
           body
@@ -46,7 +48,7 @@ async function getContents(
     }`);
   const result = await graphql(`
     query {
-      allMdx${argsBuilder({ types, filters })} {
+      allMdx${argsBuilder({ types, filters, sort })} {
         nodes {
           ${fieldsBuilder({ types }, rows)}
           body
@@ -56,6 +58,10 @@ async function getContents(
   if (result.errors) {
     throw new Error(result.errors);
   }
+  console.log(
+    (result.data as DataAllMdx<NodeItemCore<Omit<ExternalContent, "body">>>)
+      .allMdx.nodes.length
+  );
   return (
     result.data as DataAllMdx<NodeItemCore<Omit<ExternalContent, "body">>>
   ).allMdx.nodes.map(({ frontmatter, body }) => ({
