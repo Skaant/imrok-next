@@ -1,6 +1,6 @@
 import { CreatePagesArgs } from "gatsby";
-import homeRouteFactory from "./src/_routes/home.route-factory";
-import categoriesRouteFactory from "./src/_routes/categories.route-factory";
+import homeRouteFactory from "./src/_routes/home.route";
+import categoriesRouteFactory from "./src/_routes/categories.route";
 
 export default {
   createPages: async ({ graphql, actions }: CreatePagesArgs) => {

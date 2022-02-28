@@ -1,7 +1,7 @@
 import RouteFactory from "../_types/routes/RouteFactory.type";
-import illustrationsRouteFactory from "./_categories/illustrations.route-factory";
-import penseesRouteFactory from "./_categories/pensees.route-factory";
-import permacultureRouteFactory from "./_categories/permaculture.route-factory";
+import illustrationsRouteFactory from "./_categories/illustrations.route";
+import penseesRouteFactory from "./_categories/pensees.route";
+import permacultureRouteFactory from "./_categories/permaculture.route";
 
 // export type CategoriesData = {}
 
