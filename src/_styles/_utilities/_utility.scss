@@ -2,7 +2,7 @@
 @mixin utility($prefix, $property, $set, $responsive-sets: false) {
   @each $key, $value in $set {
     .#{$prefix}-#{$key} {
-      #{$property}: #{$value};
+      #{$property}: #{$value} !important;
     }
   }
   @if $responsive-sets {
@@ -10,7 +10,7 @@
       @media (min-width: #{map.get($breakpoints, $breakpoint)}) {
         @each $key, $value in $set {
           .#{$prefix}-#{$breakpoint}-#{$key} {
-            #{$property}: #{$value};
+            #{$property}: #{$value} !important;
           }
         }
       }
