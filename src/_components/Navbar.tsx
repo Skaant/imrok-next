@@ -8,8 +8,8 @@ function Navbar() {
       className="pos-lg-sticky w-100 justify-content-center align-items-center direction-column direction-lg-row d-flex pt-12 pr-12 pl-12 pr-lg-24 pl-lg-24"
     >
       <div className="h5 p-16 p-lg-24 pr-lg-0">
-        <a id="navbar-home" href="/" className="h-5 p-12 color-light">
-          IMROK.fr
+        <a id="navbar-home" href="/" className="h-5 p-12 color-light hol-adin">
+          IMROK
         </a>
         <span className="p-16 color-light">·</span>
         <button
