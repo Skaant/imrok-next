@@ -1,7 +1,7 @@
 import React from "react";
 import { PageProps } from "gatsby";
+import RowType from "../_types/layout/Row.type";
 import Layout from "../_components/Layout";
-import RowType from "../_models/layout/Row.type";
 import Row from "../_components/Row";
 
 export type DefaultTemplateContext = {
