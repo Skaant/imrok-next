@@ -58,10 +58,6 @@ async function getContents(
   if (result.errors) {
     throw new Error(result.errors);
   }
-  console.log(
-    (result.data as DataAllMdx<NodeItemCore<Omit<ExternalContent, "body">>>)
-      .allMdx.nodes.length
-  );
   return (
     result.data as DataAllMdx<NodeItemCore<Omit<ExternalContent, "body">>>
   ).allMdx.nodes.map(({ frontmatter, body }) => ({
