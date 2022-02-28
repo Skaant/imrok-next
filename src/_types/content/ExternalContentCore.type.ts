@@ -9,6 +9,8 @@ import ExternalContentTypes from "./ExternalContentTypes.type";
 type ExternalContentCore = ContentCore & {
   _id: string;
   type: ExternalContentTypes;
+  title: string;
+  slug?: string;
   /**
    * This particular field will be extracted from
    *  the MDX part of the file, while all others
@@ -16,8 +18,10 @@ type ExternalContentCore = ContentCore & {
    *  the frontammer YAML.
    */
   body?: string;
+  category?: string;
   tags?: string[];
-  /** @todo Add created & updated dates */
+  createdAt?: string;
+  updatedAt?: string;
 };
 
 export default ExternalContentCore;
@@ -28,4 +32,13 @@ export default ExternalContentCore;
  * To be more specific, it'll build the `frontmatter`
  *  object, thus `body` is ignored here.
  */
-export const ExternalContentCoreFields = [...ContentCoreFields, "_id", "tags"];
+export const ExternalContentCoreFields = [
+  ...ContentCoreFields,
+  "_id",
+  "title",
+  "slug",
+  "category",
+  "tags",
+  "createdAt",
+  "updatedAt",
+];

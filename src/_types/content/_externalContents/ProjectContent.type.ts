@@ -37,8 +37,5 @@ export default ProjectContent;
 /** Used to generate `ExternalContent` queries. */
 export const ProjectContentFields = [
   ...ExternalContentCoreFields,
-  "category",
-  "slug",
-  "title",
   "refs { key _id }",
 ];
