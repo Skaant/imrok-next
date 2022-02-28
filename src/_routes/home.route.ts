@@ -9,7 +9,7 @@ const homeRouteFactory: RouteFactory = async (path, createPage, graphql) => {
   });
   createPage({
     path,
-    component: require.resolve("../_templates/default.template.tsx"),
+    component: require.resolve("../_templates/home.template.tsx"),
     context: homePageContextFactory({ news }),
   });
 };
