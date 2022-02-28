@@ -1,5 +1,7 @@
 import { DefaultTemplateContext } from "../../_templates/default.template";
 
-type PageContextFactory = (data: any) => DefaultTemplateContext;
+type PageContextFactory<TemplateContext = DefaultTemplateContext> = (
+  data: any
+) => TemplateContext;
 
 export default PageContextFactory;
