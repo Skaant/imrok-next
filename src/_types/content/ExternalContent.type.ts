@@ -5,7 +5,9 @@ import ImageContent, {
 import ProjectContent, {
   ProjectContentFields,
 } from "./_externalContents/ProjectContent.type";
-import TextContent from "./_externalContents/TextContent.type";
+import TextContent, {
+  TextContentFields,
+} from "./_externalContents/TextContent.type";
 import VideoContent, {
   VideoContentFields,
 } from "./_externalContents/VideoContent.type";
@@ -20,6 +22,7 @@ type ExternalContent =
 export default ExternalContent;
 
 export const ExternalContentsFieldsIndex = {
+  [CONTENT_TYPES.TEXT]: TextContentFields,
   [CONTENT_TYPES.IMAGE]: ImageContentFields,
   [CONTENT_TYPES.VIDEO]: VideoContentFields,
   [CONTENT_TYPES.PROJECT]: ProjectContentFields,
