@@ -11,6 +11,10 @@ import GET_CONTENT_SORTS from "../_enums/getContentSorts.enum";
 const FILTERS_RESOLVERS: {
   [key in GET_CONTENT_FILTERS]: (...ars: any) => string;
 } = {
+  [GET_CONTENT_FILTERS.ID]: (id: string | string[]) =>
+    `id: { ${
+      Array.isArray(id) ? `in: ["${id.join('", "')}"]` : `eq: "${id}"`
+    } }`,
   [GET_CONTENT_FILTERS.PATH]: (path: string) =>
     `fileAbsolutePath: { regex: "/_data/${path}/" }`,
   [GET_CONTENT_FILTERS.CATEGORY]: (category: CATEGORIES) =>
