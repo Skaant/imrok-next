@@ -1,11 +1,15 @@
-import Card from "./Card.type";
-import Section, { SectionFields } from "./Section.type";
+import Section, { SectionContent, SectionFields } from "./Section.type";
 
-type Row<ContentType = {}> = Section & {
-  card?: Card;
-} & ContentType;
+type Row<
+  RowContentType extends SectionContent = SectionContent,
+  ColContentType extends SectionContent = SectionContent
+> = Section<RowContentType> & {
+  card?: Section<ColContentType>;
+};
 
 export default Row;
 
-export const RowFields = SectionFields;
-// [...SectionFields, "card"];
+export const RowFields = [
+  `row { ${SectionFields.join(" ")} }`,
+  `card { ${SectionFields.join(" ")} }`,
+];
