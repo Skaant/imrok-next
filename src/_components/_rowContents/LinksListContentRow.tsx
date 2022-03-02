@@ -2,7 +2,7 @@ import React from "react";
 import LinksListContent from "../../_types/content/_internalContents/LinksListContent.type";
 import Row from "../Row";
 import RowType from "../../_types/layout/Row.type";
-import Tag from "../Tag";
+import Badge from "../Badge";
 
 function LinksListContentRow({
   id,
@@ -38,7 +38,7 @@ function LinksListContentRow({
                       </span>
                     )}
                     {label}
-                    {tags && tags.map((tag) => <Tag key={tag} tag={tag} />)}
+                    {tags && tags.map((tag) => <Badge key={tag} label={tag} />)}
                   </a>
                 </li>
               ))}
