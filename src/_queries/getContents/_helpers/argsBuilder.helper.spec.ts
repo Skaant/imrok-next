@@ -27,6 +27,10 @@ describe("argsBuilder", () => {
       `(filter: { frontmatter: { type: { in: ["${CONTENT_TYPES.TEXT}", "${CONTENT_TYPES.IMAGE}"] } } })`
     );
   });
+  /** FILTERS / _ID: STRING */
+  it.todo("Should returns a filter if filter _id: string is given");
+  /** FILTERS / _ID: STRING[] */
+  it.todo("Should returns a filter if filter _id: string[] is given");
   /** FILTERS / PATH */
   it("Should returns a filter if filter path is given", () => {
     const path = "_videos";

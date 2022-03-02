@@ -1,5 +1,5 @@
 enum GET_CONTENT_FILTERS {
-  ID = "id",
+  _ID = "_id",
   /**
    * Starts in `/_data/` folder, thus
    *  **given `path` should not start with a dash**.
