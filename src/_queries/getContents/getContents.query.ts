@@ -27,7 +27,10 @@ export type GetContentsSorts = { [GET_CONTENT_SORTS.UPDATED_AT]: SortOrder };
  */
 type ExternalSectionContent = ExternalContent | undefined;
 /** Important to bind the `ExternalSectionContent` type to row. */
-type getContentsRow = Row<ExternalSectionContent, ExternalSectionContent>;
+export type getContentsRow = Row<
+  ExternalSectionContent,
+  ExternalSectionContent
+>;
 
 /**
  * Genericly typed content query.

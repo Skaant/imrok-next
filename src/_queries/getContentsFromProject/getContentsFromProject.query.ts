@@ -1,51 +1,21 @@
 import { CreatePagesArgs } from "gatsby";
-import DataAllMdx from "../../_helpers/models/dataAllMdx.model";
+import CONTENT_TYPES from "../../_enums/content-types.enum";
 import ExternalContent from "../../_types/content/Content.type";
 import { ContentRef } from "../../_types/content/_externalContents/ProjectContent.type";
-import NodeItemCore from "../../_types/queries/node-item-core.model";
+import getContents, { getContentsRow } from "../getContents/getContents.query";
+import GET_CONTENT_FILTERS from "../getContents/_enums/getContentFilters.enum";
 
 /** @todo Should return `Promise<(ContentType & Row)[]>` */
 async function getContentsFromProjectRefs(
   graphql: CreatePagesArgs["graphql"],
   refs: ContentRef[]
-): Promise<ExternalContent[]> {
-  const result = await graphql(`
-  query {
-    allMdx(
-      filter: {
-        frontmatter: {
-          _id: {
-            in: [${refs.map(({ _id }) => `"${_id}"`).join(",")}]
-          }
-        }
-      }
-    ) {
-      nodes {
-        frontmatter {
-          _id
-          type  
-          id
-          category
-          slug
-          title
-          refs {
-            key
-            _id
-          }
-        }
-        body
-      }
-    }
-  }`);
-  if (result.errors) {
-    throw new Error(result.errors);
-  }
-  return (
-    result.data as DataAllMdx<NodeItemCore<Omit<ExternalContent, "body">>>
-  ).allMdx.nodes.map(({ frontmatter, body }) => ({
-    ...frontmatter,
-    body,
-  })) as ExternalContent[];
+): Promise<getContentsRow[]> {
+  return getContents(graphql, {
+    types: CONTENT_TYPES.PROJECT,
+    filters: {
+      [GET_CONTENT_FILTERS._ID]: refs.map(({ _id }) => _id),
+    },
+  });
 }
 
 export default getContentsFromProjectRefs;
