@@ -1,8 +1,8 @@
 import * as React from "react";
-import { ReactElement } from "react-markdown/lib/react-markdown";
+import { ReactElement } from "react";
 import ExternalContent from "../../_types/content/ExternalContent.type";
 import Section from "../../_types/layout/Section.type";
-import Card from "../Card";
+import RowOrCardLayout, { RowOrCard } from "../RowOrCardLayout";
 import ExternalContentLayoutFooter, {
   FooterDisplays,
   FOOTER_DISPLAYS,
@@ -11,31 +11,6 @@ import ExternalContentLayoutHeader, {
   HeaderDisplays,
   HEADER_DISPLAYS,
 } from "./ExternalContentLayoutHeader";
-
-export type RowOrCard = "row" | "card";
-
-function RowOrCardLayout({
-  target,
-  children,
-  ...section
-}: Section<ExternalContent> & {
-  target: RowOrCard;
-  children: ReactElement;
-}) {
-  if (target === "row") {
-    return (
-      <div
-        className={`type-${section.content.type} ${
-          section.col ? ` col-${section.col}` : ""
-        }`}
-      >
-        {children}
-      </div>
-    );
-  } else {
-    return <Card {...section}>{children}</Card>;
-  }
-}
 
 export type ExternalContentLayoutDisplays = HeaderDisplays & FooterDisplays;
 
@@ -62,7 +37,7 @@ function ExternalContentLayout({
   const { type, category, updatedAt, tags, title, createdAt, author, source } =
     content;
   return (
-    <RowOrCardLayout target={target}>
+    <RowOrCardLayout target={target} content={content} {...layout}>
       <>
         <ExternalContentLayoutHeader
           category={category}
