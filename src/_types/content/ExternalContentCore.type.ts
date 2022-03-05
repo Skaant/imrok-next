@@ -22,6 +22,8 @@ type ExternalContentCore = ContentCore & {
   tags?: string[];
   createdAt?: string;
   updatedAt?: string;
+  author?: string;
+  source?: string;
 };
 
 export default ExternalContentCore;
@@ -35,10 +37,11 @@ export default ExternalContentCore;
 export const ExternalContentCoreFields = [
   ...ContentCoreFields,
   "_id",
-  "title",
   "slug",
   "category",
   "tags",
   "createdAt",
   "updatedAt",
+  "author",
+  "source",
 ];
