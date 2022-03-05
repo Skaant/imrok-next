@@ -5,8 +5,7 @@ import ContentCore from "../ContentCore.type";
 
 type LinksListContent = ContentCore & {
   type: CONTENT_TYPES.LINKS_LIST;
-  id: string;
-  title: string;
+  id?: string;
   description?: string;
   links: (Link & {
     date?: string;
