@@ -16,10 +16,6 @@ import InternalContent from "./InternalContent.type";
  *
  * @note Internal/external in the sense of code ?
  */
-type Content =
-  | string
-  | ReactElement
-  | Row<InternalContent>
-  | Row<ExternalContent>;
+type Content = string | ReactElement | InternalContent | ExternalContent;
 
 export default Content;
