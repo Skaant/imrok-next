@@ -5,38 +5,51 @@ describe("fieldsBuilder", () => {
     expect(fieldsBuilder({})).toBe(`frontmatter {
             _id
             alt
+            author
             category
+            createdAt
+            display
             id
             legend
             refs { key _id }
+            short
             slug
+            source
             tags
             title
             type
+            updatedAt
             url
           }`);
   });
 
-  it("Should add Row properties if rows param is true", () => {
+  it("Should add row and card properties if rows param is true", () => {
     expect(fieldsBuilder({}, true)).toBe(`frontmatter {
             _id
             alt
-            background
+            author
+            card { id title level background color className col }
             category
-            className
-            color
+            createdAt
+            display
             id
             legend
-            level
             refs { key _id }
+            row { id title level background color className col }
+            short
             slug
+            source
             tags
             title
             type
+            updatedAt
             url
           }`);
   });
 
-  it.todo("Should return the target content (1) properties");
-  it.todo("Should return the target contents (2..*) properties");
+  it.todo("Should return the target content type (1) properties");
+  it.todo(
+    "Should return ... content type (1) + row & card properties ... if rows param is true"
+  );
+  it.todo("Should return the target content types (2..*) properties");
 });
