@@ -18,7 +18,7 @@ const penseesRouteFactory: RouteFactory = async (path, createPage, graphql) => {
     component: require.resolve("../../_templates/default.template.tsx"),
     context: {
       title,
-      rows: videos.map((content) => ({
+      rows: videos.map(({ content }) => ({
         card: {
           col: "md",
           background: COLORS.psik,
