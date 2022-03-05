@@ -6,9 +6,14 @@ import ExternalContentCore, {
 type TextContent = ExternalContentCore & {
   type: CONTENT_TYPES.TEXT;
   short?: boolean;
+  display?: 1 | 2 | 3 | 4 | 5 | 6;
 };
 
 export default TextContent;
 
 /** Used to generate `ExternalContent` queries. */
-export const TextContentFields = [...ExternalContentCoreFields, "short"];
+export const TextContentFields = [
+  ...ExternalContentCoreFields,
+  "short",
+  "display",
+];
