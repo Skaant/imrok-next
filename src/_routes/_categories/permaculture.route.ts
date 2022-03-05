@@ -19,13 +19,13 @@ const permacultureRouteFactory: RouteFactory = async (
   createPage,
   graphql
 ) => {
-  const projects = (await getContents(graphql, {
+  const projects = await getContents(graphql, {
     types: CONTENT_TYPES.PROJECT,
     filters: { [GET_CONTENT_FILTERS.PATH]: `_projects/${id}` },
-  })) as ProjectContent[];
+  });
   const path = _path + id;
   await projectRouteFactory(path, createPage, graphql, {
-    project: projects[0],
+    project: projects[0].content as ProjectContent,
   });
   createPage({
     path,
@@ -40,11 +40,11 @@ const permacultureRouteFactory: RouteFactory = async (
             title: "Mes jardins",
             level: 2,
             color: COLORS.dark,
-            links: projects.map(({ slug, title }) => ({
+            links: projects.map(({ content: { slug, title } }) => ({
               url: `${path}/${slug}`,
               label: title,
             })),
-          } as LinksListContent & Row,
+          } as Row<LinksListContent>,
         },
       ],
     } as DefaultTemplateContext,
