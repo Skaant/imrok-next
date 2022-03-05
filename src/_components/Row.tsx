@@ -1,5 +1,5 @@
 import * as React from "react";
-import { ReactElement } from "react-markdown/lib/react-markdown";
+import { ReactElement } from "react";
 import RowType from "../_types/layout/Row.type";
 import Card from "./Card";
 import ContentSwitch from "./ContentSwitch";
@@ -23,8 +23,10 @@ function Row(
         children
       ) : card ? (
         <Card {...card} />
-      ) : (
+      ) : props.content ? (
         <ContentSwitch target="row" {...props} />
+      ) : (
+        ""
       )}
     </div>
   );
