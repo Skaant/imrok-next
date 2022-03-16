@@ -10,11 +10,8 @@
     padding: 0;
     overflow: hidden;
     border-bottom: 1px solid transparent;
-    transition: border-bottom-color cubic-bezier(0.075, 0.82, 0.165, 1) 2s,
-      color cubic-bezier(0.075, 0.82, 0.165, 1) 2s,
-      height cubic-bezier(0.075, 0.82, 0.165, 1) 2s,
-      padding cubic-bezier(0.075, 0.82, 0.165, 1) 2s;
-    &:hover {
+    transition: all cubic-bezier(0.075, 0.82, 0.165, 1) 2s;
+    &.bg-highbs:hover {
       border-bottom-color: $light;
       color: $light;
     }

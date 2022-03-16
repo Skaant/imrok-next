@@ -6,14 +6,14 @@ enum CATEGORIES {
    * - Schemas ...
    */
   pensees = "pensees",
-  /** Illustration production */
-  illustrations = "illustrations",
   /** My experiments with gardens & nature */
-  permaculture = "permaculture",
+  // permaculture = "permaculture",
+  /** Illustration production */
+  // illustrations = "illustrations",
   /** Short personal stories */
-  anecdotes = "anecdotes",
+  // anecdotes = "anecdotes",
   /** Books I liked and extracts. */
-  bibliotheque = "bibliotheque",
+  // bibliotheque = "bibliotheque",
 }
 
 export default CATEGORIES;

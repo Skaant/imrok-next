@@ -6,7 +6,7 @@ export const CATEGORIES_DATA: { [key in CATEGORIES]: Category } = {
     id: CATEGORIES.pensees,
     title: "Pensées",
   },
-  [CATEGORIES.illustrations]: {
+  /* [CATEGORIES.illustrations]: {
     id: CATEGORIES.illustrations,
     title: "Illustrations",
   },
@@ -21,5 +21,5 @@ export const CATEGORIES_DATA: { [key in CATEGORIES]: Category } = {
   [CATEGORIES.bibliotheque]: {
     id: CATEGORIES.bibliotheque,
     title: "Bibliothéque",
-  },
+  }, */
 };
