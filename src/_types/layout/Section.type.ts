@@ -1,3 +1,4 @@
+import { ExternalContentLayoutDisplays } from "../../_components/ExternalContentLayout/ExternalContentLayout";
 import Content from "../content/Content.type";
 import SectionCol from "./SectionCol.type";
 
@@ -12,6 +13,8 @@ type Section<ContentType extends SectionContent = Content> = {
   color?: string;
   className?: string;
   col?: SectionCol;
+  /** For code-use only (not queried content). */
+  displays?: ExternalContentLayoutDisplays;
 };
 
 export default Section;
