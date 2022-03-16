@@ -18,7 +18,13 @@ const FILTERS_RESOLVERS: {
   [GET_CONTENT_FILTERS.PATH]: (path: string) =>
     `fileAbsolutePath: { regex: "/_data/${path}/" }`,
   [GET_CONTENT_FILTERS.CATEGORY]: (category: CATEGORIES) =>
-    `category: { eq: "${category}" }`,
+    `category: { ${
+      Array.isArray(category)
+        ? `in: [${category
+            .map((cat) => (cat === null ? "null" : `"${cat}"`))
+            .join(", ")}]`
+        : `eq: ${category === null ? "null" : `"${category}"`}`
+    } }`,
   [GET_CONTENT_FILTERS.TAGS]: (tags: string[]) =>
     `tags: { in: "${tags.join('", ')}" }`,
 };
