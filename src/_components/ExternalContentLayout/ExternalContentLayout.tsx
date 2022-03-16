@@ -2,7 +2,7 @@ import * as React from "react";
 import { ReactElement } from "react";
 import ExternalContent from "../../_types/content/ExternalContent.type";
 import Section from "../../_types/layout/Section.type";
-import RowOrCardLayout, { RowOrCard } from "../RowOrCardLayout";
+import { RowOrCard } from "../RowOrCardLayout";
 import ExternalContentLayoutFooter, {
   FooterDisplays,
   FOOTER_DISPLAYS,
@@ -28,7 +28,7 @@ function ExternalContentLayout({
     [FOOTER_DISPLAYS.SOURCE]: true,
   },
   children,
-  ...layout
+  className = "", // ...layout
 }: Section<ExternalContent> & {
   target: RowOrCard;
   displays?: ExternalContentLayoutDisplays;
@@ -37,25 +37,23 @@ function ExternalContentLayout({
   const { type, category, updatedAt, tags, title, createdAt, author, source } =
     content;
   return (
-    <RowOrCardLayout target={target} content={content} {...layout}>
-      <>
-        <ExternalContentLayoutHeader
-          category={category}
-          type={type}
-          title={title}
-          displays={displays}
-        />
-        {children}
-        <ExternalContentLayoutFooter
-          tags={tags}
-          createdAt={createdAt}
-          updatedAt={updatedAt}
-          author={author}
-          source={source}
-          displays={displays}
-        />
-      </>
-    </RowOrCardLayout>
+    <div className={className}>
+      <ExternalContentLayoutHeader
+        category={category}
+        type={type}
+        title={title}
+        displays={displays}
+      />
+      {children}
+      <ExternalContentLayoutFooter
+        tags={tags}
+        createdAt={createdAt}
+        updatedAt={updatedAt}
+        author={author}
+        source={source}
+        displays={displays}
+      />
+    </div>
   );
 }
 
