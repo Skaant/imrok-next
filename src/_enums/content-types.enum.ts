@@ -6,12 +6,20 @@ enum CONTENT_TYPES {
   TEXT = "text",
   /** External */
   IMAGE = "image",
-  /** External */
+  /** @todo External */
   GALLERY = "gallery",
   /** External */
   VIDEO = "video",
   /** External */
   PROJECT = "project",
+  /**
+   * PROJECT sub-types
+   */
+  /** @todo External */
+  ARTICLE = "article",
+  /** @todo External */
+  BOOK = "book",
+
   /** Internal */
   LINKS_LIST = "links-list",
   /** Internal */
