@@ -21,13 +21,12 @@ function ExternalContentLayoutHeader({
 }: Pick<ExternalContent, "category" | "type" | "title"> & {
   displays: HeaderDisplays;
 }) {
-  return (
+  const condition1 =
+    (displays[HEADER_DISPLAYS.CATEGORY] && category) ||
+    displays[HEADER_DISPLAYS.TYPE];
+  return condition1 || displays[HEADER_DISPLAYS.TITLE] ? (
     <div>
-      {[
-        displays[HEADER_DISPLAYS.CATEGORY],
-        category,
-        displays[HEADER_DISPLAYS.TYPE],
-      ].some((value) => value) && (
+      {condition1 && (
         <div>
           {category && displays[HEADER_DISPLAYS.CATEGORY] && (
             <Badge label={category} background={COLORS.psik} />
@@ -39,7 +38,7 @@ function ExternalContentLayoutHeader({
       )}
       {displays[HEADER_DISPLAYS.TITLE] && <div>{title}</div>}
     </div>
-  );
+  ) : null;
 }
 
 export default ExternalContentLayoutHeader;

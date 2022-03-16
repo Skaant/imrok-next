@@ -28,11 +28,16 @@ function ExternalContentLayoutFooter({
 > & {
   displays: FooterDisplays;
 }) {
-  return (
+  const condition1 =
+    (displays[FOOTER_DISPLAYS.CREATED_AT] && createdAt) ||
+    (displays[FOOTER_DISPLAYS.UPDATED_AT] && updatedAt) ||
+    (displays[FOOTER_DISPLAYS.TAGS] && tags && tags.length);
+  const condition2 =
+    (displays[FOOTER_DISPLAYS.AUTHOR] && author) ||
+    (displays[FOOTER_DISPLAYS.SOURCE] && source);
+  return condition1 || condition2 ? (
     <div>
-      {((displays[FOOTER_DISPLAYS.CREATED_AT] && createdAt) ||
-        (displays[FOOTER_DISPLAYS.UPDATED_AT] && updatedAt) ||
-        (displays[FOOTER_DISPLAYS.TAGS] && tags && tags.length)) && (
+      {condition1 && (
         <div>
           {displays[FOOTER_DISPLAYS.CREATED_AT] && createdAt && (
             <span>Publié le {updatedAt}</span>
@@ -45,14 +50,15 @@ function ExternalContentLayoutFooter({
             tags.map((tag) => <Badge label={tag} background={COLORS.psik} />)}
         </div>
       )}
-      {((displays[FOOTER_DISPLAYS.AUTHOR] && author) ||
-        (displays[FOOTER_DISPLAYS.SOURCE] && source)) && (
+      {condition2 && (
         <div>
           {displays[FOOTER_DISPLAYS.AUTHOR] && author && <i>{author}</i>}
           {displays[FOOTER_DISPLAYS.SOURCE] && source && <span>{source}</span>}
         </div>
       )}
     </div>
+  ) : (
+    <></>
   );
 }
 
