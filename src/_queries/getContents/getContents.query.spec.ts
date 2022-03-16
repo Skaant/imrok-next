@@ -45,17 +45,22 @@ describe("getContents query", () => {
           frontmatter {
             _id
             alt
+            author
+            body
             category
+            createdAt
+            display
             id
             legend
             refs { key _id }
             slug
+            source
             tags
             title
             type
+            updatedAt
             url
           }
-          body
         }
       }
     }`);

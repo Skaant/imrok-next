@@ -79,11 +79,18 @@ async function getContents(
         ? {
             card: {
               ...card,
-              content: frontmatter,
+              content: {
+                ...frontmatter,
+                body,
+              },
             },
           }
-        : { content: frontmatter }),
-      body,
+        : {
+            content: {
+              ...frontmatter,
+              body,
+            },
+          }),
     })
   ) as getContentsRow[];
 }
