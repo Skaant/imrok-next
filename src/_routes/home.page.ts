@@ -9,17 +9,29 @@ import LinksListContent from "../_types/content/_internalContents/LinksListConte
 import PageContextFactory from "../_types/routes/PageContextFactory.type";
 import Row from "../_types/layout/Row.type";
 import Content from "../_types/content/Content.type";
+import { HEADER_DISPLAYS } from "../_components/ExternalContentLayout/ExternalContentLayoutHeader";
+import CATEGORIES from "../_enums/categories.enum";
 
 const homePageContextFactory: PageContextFactory<HomeTemplateContext> = async (
   _,
   graphql
 ) => {
-  const highlight = (
-    await getContents(graphql, {
-      filters: { [GET_CONTENT_FILTERS._ID]: "text_l-imagination-est-la-voie" },
-    })
-  )[0];
+  const [highlight, introduction, highbsBokCta] = await Promise.all(
+    [
+      "text_l-imagination-est-la-voie",
+      "text_home-introduction",
+      "text_home-highbs-bok-cta",
+    ].map(
+      async (id) =>
+        (
+          await getContents(graphql, {
+            filters: { [GET_CONTENT_FILTERS._ID]: id },
+          })
+        )[0]
+    )
+  );
   const news = await getContents(graphql, {
+    filters: { [GET_CONTENT_FILTERS.CATEGORY]: [null, CATEGORIES.pensees] },
     sort: { [GET_CONTENT_SORTS.UPDATED_AT]: "DESC" },
   });
   return {
@@ -29,33 +41,51 @@ const homePageContextFactory: PageContextFactory<HomeTemplateContext> = async (
       {
         title: "Pensée du moment",
         level: 2,
+        col: "md",
+        color: COLORS.light,
         card: {
-          content: highlight.content,
+          content: {
+            ...highlight.content,
+            display: 2,
+          },
           col: "md",
         },
+        className: "mb-24 mb-md-32",
       } as Row<undefined, Content>,
+      {
+        level: 2,
+        title: introduction.content.title,
+        content: introduction.content,
+        col: "lg",
+        background: COLORS.light,
+        displays: {
+          [HEADER_DISPLAYS.TITLE]: false,
+        },
+      },
       {
         background: COLORS.light,
         card: {
           level: 2,
-          col: "sm",
-          background: COLORS.light,
-          title: "HIGHBS-BOK",
-          content: "Stylé",
+          col: "md",
+          background: COLORS.highbs,
+          title: highbsBokCta.content.title,
+          content: highbsBokCta.content,
           className: "pt-12 pb-12",
+          displays: {
+            [HEADER_DISPLAYS.TITLE]: false,
+          },
         },
-      },
-      {
-        level: 2,
-        title: "Éditorial",
-        content: "Qui suis-je ? Qu'est-ce qu'on trouve sur ce site ?",
+        className: "mb-24 mb-md-32",
       },
       {
         level: 2,
         id: "global-news",
         title: "Activités récentes",
+        color: COLORS.light,
+        col: "lg",
         content: {
           type: CONTENT_TYPES.LINKS_LIST,
+          color: COLORS.lightO90,
           links: news
             .filter(({ content: { slug } }) => slug)
             .map(
