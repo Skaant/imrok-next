@@ -9,8 +9,17 @@ function Row(
     children?: ReactElement;
   }
 ) {
-  const { id, title, level, background, color, card, className, children } =
-    props;
+  const {
+    id,
+    title,
+    level,
+    background,
+    color,
+    card,
+    className,
+    col,
+    children,
+  } = props;
   return (
     <div
       {...(id && { id })}
@@ -18,7 +27,13 @@ function Row(
         background ? ` bg-${background}` : ""
       }${color ? ` color-${color}` : ""}${className ? ` ${className}` : ""}`}
     >
-      {title && level && React.createElement(`h${level}`, {}, title)}
+      {title &&
+        level &&
+        React.createElement(
+          `h${level}`,
+          { ...(col ? { className: `col-${col}` } : {}) },
+          title
+        )}
       {children ? (
         children
       ) : card ? (
