@@ -1,0 +1,9 @@
+@include utility(
+  "font",
+  font-family,
+  (
+    normal: roboto-regular,
+    craft: mono-regular,
+    curvy: dancing-script-regular,
+  )
+);
