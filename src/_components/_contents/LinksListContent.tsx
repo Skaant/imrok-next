@@ -3,6 +3,7 @@ import LinksListContentType from "../../_types/content/_internalContents/LinksLi
 import Badge from "../Badge";
 import Section from "../../_types/layout/Section.type";
 import RowOrCardLayout, { RowOrCard } from "../RowOrCardLayout";
+import COLORS from "../../_enums/colors.enum";
 
 function LinksListContent(
   props: Section<LinksListContentType> & {
@@ -10,8 +11,7 @@ function LinksListContent(
   }
 ) {
   const {
-    target,
-    content: { links },
+    content: { links, color = COLORS.dark },
   } = props;
   return (
     <RowOrCardLayout {...props}>
@@ -19,24 +19,42 @@ function LinksListContent(
         <ul>
           {links.map(({ url, label, date, category, tags, type }) => (
             <li key={url}>
-              <a href={url} className="color-dark">
+              <a href={url} className={`color-${color}`}>
+                <span className="d-inline-block mb-12">{label}</span>
                 {category && (
-                  <span className="badge rounded-pill bg-highbs text-light">
-                    {category}
-                  </span>
+                  <Badge
+                    label={category}
+                    background={COLORS.highbs}
+                    color={COLORS.dark}
+                    className="ml-8 display-8"
+                  />
                 )}
                 {date && (
-                  <span className="badge rounded-pill bg-psik text-light">
-                    {date}
-                  </span>
+                  <Badge
+                    label={date}
+                    background={COLORS.light}
+                    color={COLORS.dark}
+                    className="ml-8 display-8"
+                  />
                 )}
                 {type && (
-                  <span className="badge rounded-pill bg-highbs text-light">
-                    {type}
-                  </span>
+                  <Badge
+                    label={type}
+                    background={COLORS.highbs}
+                    color={COLORS.dark}
+                    className="ml-8 display-8"
+                  />
                 )}
-                {label}
-                {tags && tags.map((tag) => <Badge key={tag} label={tag} />)}
+                {tags &&
+                  tags.map((tag) => (
+                    <Badge
+                      key={tag}
+                      label={tag}
+                      background={COLORS.light}
+                      color={COLORS.psik}
+                      className="ml-8 display-8"
+                    />
+                  ))}
               </a>
             </li>
           ))}
