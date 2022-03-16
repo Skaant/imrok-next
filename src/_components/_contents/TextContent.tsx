@@ -11,19 +11,26 @@ function TextContent(
     target: RowOrCard;
   }
 ) {
-  const { content } = props;
+  const { content, displays, col } = props;
   const { display, short, title } = content;
   const className =
-    (props.className || "") + (display ? ` display-${display}` : "");
+    (props.className || "") +
+    (col ? ` col-${col}` : "") +
+    (display ? ` display-${display}` : "");
   return (
     <ExternalContentLayout
       {...props}
       className={className}
       displays={{
-        [HEADER_DISPLAYS.TITLE]: !short,
+        [HEADER_DISPLAYS.TITLE]:
+          (displays ? displays[HEADER_DISPLAYS.TITLE] : true) && !short,
       }}
     >
-      {short ? <p>{title}</p> : <MDXRenderer>{content.body}</MDXRenderer>}
+      {short ? (
+        <p className="font-curvy">{title}</p>
+      ) : (
+        <MDXRenderer>{content.body}</MDXRenderer>
+      )}
     </ExternalContentLayout>
   );
 }
